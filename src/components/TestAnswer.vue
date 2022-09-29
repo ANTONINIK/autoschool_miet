@@ -94,7 +94,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin-right: 5px;
-  color: #d9d9d9;
+  color: #C2B9B0;
   user-select: none;
 }
 
@@ -102,6 +102,7 @@ export default {
 p {
   font-weight: 500;
   margin: 10px;
+  color: rgb(122, 122, 122)
 }
 
 .active {

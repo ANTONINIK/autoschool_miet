@@ -8,7 +8,7 @@
                 <button v-for="(question, index) in questions" :key="index"
                     class="btn"
                     @click="currentQuestionNumber = index"
-                    :style="{'background-color': index === currentQuestionNumber ? 'red' : ''}"
+                    :style="{'background-color': index === currentQuestionNumber ? '#d65d69' : ''}"
                 >
                     {{index + 1}}
                 </button>
@@ -126,6 +126,7 @@ p {
     border: 2px solid rgb(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
+    padding-left: 10px;
 }
 
 .answers-container {
@@ -137,9 +138,9 @@ p {
 }
 
 .btn {
-    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+    border-color: rgb(218, 44, 44) rgb(209, 209, 209) rgb(186, 186, 186);
     border-style: solid;
-    border-width: 1px;
+    border-width: 2px;
     padding: 1px 7px 2px;
     text-rendering: auto;
     color: initial;

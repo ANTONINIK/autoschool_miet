@@ -20,7 +20,7 @@ export default {
     display: flex;
     height: 80px;
     width: 100%;
-    background-color: #7E685A;
+    background-color: #222222;
     line-height: 1.3;
     font-family: Menlo, monospace;
 }
