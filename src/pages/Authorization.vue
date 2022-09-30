@@ -1,7 +1,7 @@
 <template>
-  <div class="h-full bg-gray-50">
+  <div class="bg-gray-50">
     <Navbar />
-    <section class="h-full">
+    <section class="h-screen">
       <div
         class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
       >

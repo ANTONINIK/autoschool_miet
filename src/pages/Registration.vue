@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <Navbar/>
-        <Footer/>
-    </div>
+  <div>
+    <Navbar />
+    <Footer />
+  </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Navbar,
     Footer,
@@ -19,6 +19,5 @@ export default {
 </script>
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap");
 </style>
