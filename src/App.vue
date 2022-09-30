@@ -1,15 +1,11 @@
 <template>
   <div class="app">
     <router-view></router-view>
-  </div>  
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>
