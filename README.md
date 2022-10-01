@@ -3,6 +3,7 @@
 ## Project setup
 ```
 npm install
+ХУЙ ЖОПА АНТОН ДУШНИЛА
 ```
 
 ### Compiles and hot-reloads for development
