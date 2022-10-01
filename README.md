@@ -3,6 +3,7 @@
 ## Project setup
 ```
 npm install
+For easy start use Windows App
 ```
 
 ### Compiles and hot-reloads for development
