@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     userResponse(indexAnswer){
-      console.log("Антон")
+      console.log("testAnton")
         if(!localStorage.getItem(this.question.id))
             localStorage.setItem(this.question.id, indexAnswer);
     },
