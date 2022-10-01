@@ -47,7 +47,7 @@ export default {
   mounted() {
     if (parseInt(localStorage.getItem(this.questionIndex)) === this.index) {
       if (
-        parseInt(localStorage.getItem(this.questionIndex) === this.rightIndex)
+        parseInt(localStorage.getItem(this.questionIndex)) === this.rightIndex
       )
         this.classes.selectedTrue = true;
       else this.classes.selectedFalse = true;

@@ -66,26 +66,6 @@ export default {
   align-items: center;
 }
 
-/* .time-progress-bar {
-    --width: 240px;
-    width: var(--time-progress-bar-width);
-    height: 10px;
-    border-radius: 4px;
-    background-color: rgb(0, 84, 136);
-    display: flex;
-    align-items: center;
-} */
-
-/* .passed {
-    width: 60%;
-    height: 6px;
-    margin: 2px;
-    border-radius: 2px;
-    background-color: rgb(252, 139, 41);
-    display: flex;
-    align-items: center;
-} */
-
 .answered {
   margin: 0px 5px;
   display: flex;
