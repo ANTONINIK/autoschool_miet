@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-.footer {
+.the-footer {
   display: flex;
   height: 80px;
   width: 100%;
