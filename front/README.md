@@ -3,14 +3,11 @@
 ## Project setup
 ```
 npm install
-For easy start use Windows App
-
-test Pull Request
+```
 
 ### Compiles and hot-reloads for development
 ```
 npm run serve
-For launch project
 ```
 
 ### Compiles and minifies for production
