@@ -1,20 +1,19 @@
 <template>
   <div>
-    <Navbar />
-    <h1 class="text-3xl font-bold underline h-screen">ABOUT</h1>
-    <Footer />
+    <the-nav-bar />
+    <the-footer />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import TheNavBar from '@/components/TheNavBar.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
 export default {
   name: "App",
   components: {
-    Navbar,
-    Footer,
+    TheNavBar,
+    TheFooter,
   },
 };
 </script>

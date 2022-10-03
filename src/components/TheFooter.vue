@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="the-footer">
     <div class="text-wrapper">
       <p>Copyright © 2007-2022</p>
     </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "Footer",
+  name: "TheFooter",
 };
 </script>
 

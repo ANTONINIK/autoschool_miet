@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-50">
-    <Navbar />
+    <the-nav-bar />
     <section class="h-screen">
       <div
         class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
@@ -107,19 +107,19 @@
         </div>
       </div>
     </section>
-    <Footer />
+    <the-footer />
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import TheFooter from '@/components/TheFooter.vue';
+import TheNavBar from '@/components/TheNavBar.vue';
 
 export default {
   name: "App",
   components: {
-    Navbar,
-    Footer,
+    TheFooter,
+    TheNavBar,
   },
 };
 </script>

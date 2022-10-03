@@ -1,22 +1,22 @@
 <template>
 <div>
-  <Navbar/>
-  <Test/>
-  <Footer/>
+  <the-nav-bar/>
+  <test/>
+  <the-footer />
 </div>
 </template>
 
 <script>
-import Navbar from '@/components/Navbar';
-import Test from '@/components/Test';
-import Footer from '@/components/Footer';
+import TheNavBar from '@/components/TheNavBar.vue';
+import Test from '@/components/Test.vue';
+import TheFooter from '@/components/TheFooter.vue';
 
 export default {
   name: 'App',
   components: {
-    Navbar,
+    TheNavBar,
     Test,
-    Footer,
+    TheFooter,
   },
 };
 </script>

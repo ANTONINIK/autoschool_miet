@@ -1,6 +1,6 @@
 <template>
-  <div class="navbar">
-    <div class="navbar-container">
+  <div class="nav-bar">
+    <div class="nav-bar-container">
       <div class="left">
         <div class="logo">
           <p class="logo-text" @click="$router.push('/about')">
@@ -30,12 +30,12 @@
 
 <script>
 export default {
-  name: "Navbar",
+  name: "NavBar",
 };
 </script>
 
 <style>
-.navbar {
+.nav-bar {
   width: 100%;
   max-height: 80px;
   background-color: #d65d69;
@@ -44,7 +44,7 @@ export default {
   align-items: center;
 }
 
-.navbar-container {
+.nav-bar-container {
   width: var(--page-max-width);
 
   display: flex;

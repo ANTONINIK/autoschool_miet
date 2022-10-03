@@ -1,14 +1,14 @@
-import Main from "@/pages/Main.vue";
+import MainPage from "@/pages/MainPage.vue";
 import TestPage from "@/pages/TestPage.vue";
-import About from "@/pages/About.vue";
-import Authorization from "@/pages/Authorization.vue";
-import Registration from "@/pages/Registration.vue";
+import AboutPage from "@/pages/AboutPage.vue";
+import AuthorizationPage from "@/pages/AuthorizationPage.vue";
+import RegistrationPage from "@/pages/RegistrationPage.vue";
 import {createRouter, createWebHistory} from "vue-router";
 
 const routes = [
     {
         path: '/',
-        component: Main
+        component: MainPage
     },
 
     {
@@ -18,17 +18,17 @@ const routes = [
 
     {
         path: '/about',
-        component: About
+        component: AboutPage
     },
 
     {
         path: '/authorization',
-        component: Authorization
+        component: AuthorizationPage
     },
 
     {
         path: '/registration',
-        component: Registration
+        component: RegistrationPage
     },
 ]
 
