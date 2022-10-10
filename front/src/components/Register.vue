@@ -1,58 +1,30 @@
 <template>
-  <section class="h-screen">
-    <div
-      class="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
-    >
-      <div class="w-full max-w-md space-y-8">
-        <div>
-          <h2
-            class="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900"
-          >
-            Регистрация
-          </h2>
+  <section class="bg-gray-100 flex items-center justify-center h-screen">
+    <form>
+      <div class="bg-white w-96 p-6 rounded shadow-sm">
+        <div class="flex items-center justify-center mb-4">
+          <img src="..\assets\img\icon.png" alt="" class="h-32">
         </div>
-        <form class="mt-8 space-y-6" @submit.prevent="handleSubmit">
-          <div class="-space-y-px rounded-md shadow-sm">
-            <div>
-              <label for="email-address" class="sr-only"
-                >Адрес электронной почты</label
-              >
-              <input
-                id="email-address"
-                name="email"
-                type="email"
-                autocomplete="email"
-                required
-                class="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Адрес электронной почты"
-                v-model="email"
-              />
-            </div>
-            <div>
-              <label for="password" class="sr-only">Пароль</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autocomplete="current-password"
-                required
-                class="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                placeholder="Пароль"
-                v-model="password"
-              />
-            </div>
-          </div>
-          <div>
-            <button
-              type="submit"
-              class="group relative flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-            >
-              Зарегистрироваться
-            </button>
-          </div>
-        </form>
+        
+        <label for="name" class="text-gray-700">Имя</label>
+        <input id="name" type="text" class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4">
+
+        <label for="sername" class="text-gray-700">Фамилия</label>
+        <input id="sername" type="text" class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4">
+
+        <label for="login" class="text-gray-700">Email</label>
+        <input id="login" type="email" class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4">
+        
+        <label for="pass1" class="text-gray-700">Пароль</label>
+        <input id="pass1" type="password" class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4">
+
+        <label for="pass2" class="text-gray-700">Повторите пароль</label>
+        <input id="pass2" type="password" class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4">
+
+        <button type="submit" class="bg-blue-500 w-full text-gray-100 py-2 rounded hover:bg-blue-600 transition-colors">Зарегистрироваться</button>
+
       </div>
-    </div>
+    </form>
   </section>
 </template>
 

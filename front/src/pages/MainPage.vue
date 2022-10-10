@@ -1,8 +1,26 @@
 <template>
   <div>
     <the-nav-bar />
-    <h1 class="text-3xl font-bold underline h-screen">NEWS</h1>
-    <h3 v-if="user">Hi, {{user}}</h3>
+    <h1 class="text-3xl font-bold underline">NEWS</h1>
+    <section id="about">
+      <div class="container mx-auto px-5 py-2">
+        <div class="flex justify-between mt-20 mb-20">
+          <div class="flex flex-col w-1/2">
+            <div class="text-darked font-bold text-4xl tracking-right">
+              Заголовок
+            </div>
+            <h3 class="text-xl font-black mt-[2px]">
+            Небольшое описание  
+            </h3>
+            <p class="mt-[10px] text-lg">Инофрмация о нас и нашей компании Инофрмация о нас и нашей компании Инофрмация о нас и нашей компании Инофрмация о нас и нашей компании
+            </p>
+          </div>
+          <div class="flex flex-col w-[450px]">
+            <img src="../assets/img/10.jpg" alt="about">
+          </div>
+        </div>
+      </div>
+    </section>
     <the-footer />
   </div>
 </template>
