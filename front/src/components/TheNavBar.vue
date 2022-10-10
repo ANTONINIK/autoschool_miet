@@ -1,32 +1,15 @@
 <template>
-  <div class="nav-bar">
-    <div class="nav-bar-container">
-      <div class="left">
-        <div class="logo">
-          <p class="logo-text" @click="$router.push('/about')">
-            Тесты ПДД «ЛАМАКО»
-          </p>
-        </div>
-      </div>
-      <div class="center">
-        <div class="menu">
-          <a class="menu-item" @click="$router.push('/')"> Новости </a>
-          <a class="menu-item" @click="$router.push('/testpage')">
-            Демо - тест
-          </a>
-        </div>
-      </div>
-      <div class="right">
-        <div class="wrapper">
-          <div class="separator"></div>
-          <div class="login">
-            <p @click="$router.push('/authorization')">Войти</p>
-            <p @click="$router.push('/registration')">Регистрация</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <section id="navigation" class="container">
+    <nav>
+      <ul class="menu">
+        <li class="menu-item"><a class="menu-link" @click="$router.push('/about')">Lamako</a></li>
+        <li class="menu-item"><a class="menu-link" @click="$router.push('/')">Новости</a></li>
+        <li class="menu-item"><a class="menu-link" @click="$router.push('/testpage')">Демо-тест</a></li>
+        <li class="menu-item"><a class="menu-link" @click="$router.push('/authorization')">Войти</a></li>
+        <li class="menu-item"><a class="menu-link" @click="$router.push('/registration')">Регистрация</a></li>
+      </ul>
+    </nav>
+  </section>
 </template>
 
 <script>
@@ -36,86 +19,33 @@ export default {
 </script>
 
 <style>
-.nav-bar {
-  width: 100%;
-  max-height: 80px;
-  background-color: #d65d69;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#navigation.container{
+  max-width: 100%;
 }
 
-.nav-bar-container {
-  width: var(--page-max-width);
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 10px 0px;
-
-  font-family: "Roboto", sans-serif;
+#navigation{
+  margin: 0;
+  color:#fff;
+  background-color: rgb(59 130 246 / 500);
 }
 
-.left {
+#navigation .menu {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  list-style-type: none;
+}
 
-  font-size: 1.25rem;
-  font-weight: 400;
-  user-select: none;
+#navigation .menu .menu-item {
+  padding: 1rem 0;
+  margin: 0 1rem;
   cursor: pointer;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
+@media(hover) {
+  #navigation .menu .menu-item:hover{
+    opacity: 0.5;
+    text-decoration: underline;
+  }
 }
 
-.logo-text {
-  display: flex;
-  padding: 20px;
-  margin-left: 10px;
-  color: white;
-  background-color: #afd274;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-}
-
-.menu {
-  display: flex;
-  justify-content: space-between;
-}
-
-.menu-item {
-  display: flex;
-  text-decoration: none;
-  color: black;
-  align-items: center;
-  text-transform: uppercase;
-  transition: color 0.25s;
-  margin: 0px 10px;
-}
-
-.right {
-  display: flex;
-  justify-content: center;
-}
-
-.wrapper {
-  display: flex;
-  justify-content: space-around;
-}
-
-.separator {
-  height: 100%;
-  width: 1px;
-
-  background-color: rgba(0, 0, 0, 0.5);
-
-  margin: 0px 5px;
-}
 </style>
