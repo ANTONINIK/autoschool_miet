@@ -1,6 +1,7 @@
 <template>
   <div>
     <the-nav-bar />
+    <register />
     <the-footer />
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
 import TheNavBar from '@/components/TheNavBar.vue';
 import TheFooter from '@/components/TheFooter.vue';
+import Register from '../components/Register.vue';
 
 export default {
   name: "App",
   components: {
     TheNavBar,
     TheFooter,
+    Register,
   },
 };
 </script>

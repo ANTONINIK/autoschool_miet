@@ -21,6 +21,7 @@
           <div class="separator"></div>
           <div class="login">
             <p @click="$router.push('/authorization')">Войти</p>
+            <p @click="$router.push('/registration')">Регистрация</p>
           </div>
         </div>
       </div>
