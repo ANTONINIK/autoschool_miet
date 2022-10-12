@@ -3,7 +3,7 @@
     <div class="nav-bar-container">
       <div class="left">
         <div class="logo">
-          <p class="logo-text" @click="$router.push('/about')">
+          <p class="logo-text rounded-xl" @click="$router.push('/about')">
             Тесты ПДД «ЛАМАКО»
           </p>
         </div>
