@@ -57,22 +57,28 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 export default {
-  name: 'Register',
+  name: "Register",
   data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     };
   },
   methods: {
     async handleSubmit() {
-      await axios.post('register',{
-        email: this.email,
-        password: this.password,
-      });
-      this.$router.push('/authorization');
+      await axios
+        .post("register", {
+          email: this.email,
+          password: this.password,
+        })
+        .then((response) => {
+          if (response.status == 200) {
+            alert("Регистрация завершена");
+            this.$router.push("/authorization");
+          }
+        });
     },
   },
 };
