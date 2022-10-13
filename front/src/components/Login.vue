@@ -60,7 +60,7 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             localStorage.setItem("token", response.data);
-            this.$router.push("/");
+            this.$router.go("/")
           }
           if (response.status == 203) {
             alert("Неверный пароль или логин");

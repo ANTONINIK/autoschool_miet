@@ -66,7 +66,7 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             alert("Регистрация завершена");
-            this.$router.push("/authorization");
+            this.$router.push("/login");
           }
         });
     },
