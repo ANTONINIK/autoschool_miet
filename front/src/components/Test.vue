@@ -10,7 +10,7 @@
         class="btn"
         :style="{
           'background-color':
-            indexButton === currentQuestionIndex ? '#d65d69' : '',
+            indexButton === currentQuestionIndex ? '#3B82F6' : '',
         }"
       >
         {{ indexButton + 1 }}
@@ -33,7 +33,7 @@ import TestTimeBar from "./TestTimeBar.vue";
 import TestQuestion from "./TestQuestion.vue";
 
 export default {
-  name: "TestContent",
+  name: "Test",
   data() {
     return {
       questions: questionsData,
@@ -63,8 +63,6 @@ p {
   font-family: "Roboto", sans-serif;
   font-weight: 300;
   justify-content: center;
-  background-color: #c2c9cf;
-  border: 1px solid;
 }
 
 .mark-question {
@@ -88,7 +86,7 @@ p {
 }
 
 .btn {
-  border-color: rgb(218, 44, 44) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-color: rgb(59 130 246 / 500);
   border-style: solid;
   border-width: 2px;
   padding: 1px 7px 2px;

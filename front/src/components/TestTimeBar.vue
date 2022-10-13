@@ -33,45 +33,39 @@ export default {
   max-height: 70px;
   display: flex;
   justify-content: center;
-  background-color: #c2b9b0;
-  border: 0.5px solid;
+  background-color: antiquewhite;
+  border: 2px solid rgb(0, 0, 0, 0.25);
   margin: 10px 0;
 }
-
 .questions-progress-wrapper {
   width: 100%;
   margin: 16px;
   display: flex;
   justify-content: space-between;
 }
-
 .test-title {
   font-weight: 400;
   margin: 0px 5px;
   display: flex;
   align-items: center;
 }
-
 .remaining-time {
   font-weight: 500;
   margin: 0px 5px;
   display: flex;
   align-items: center;
 }
-
 .time-counter {
   font-weight: 500;
   margin: 0px 5px;
   display: flex;
   align-items: center;
 }
-
 .answered {
   margin: 0px 5px;
   display: flex;
   align-items: center;
 }
-
 .counter {
   padding: 10px;
   background-color: white;

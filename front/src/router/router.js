@@ -1,40 +1,46 @@
-import MainPage from "@/pages/MainPage.vue";
-import TestPage from "@/pages/TestPage.vue";
-import AboutPage from "@/pages/AboutPage.vue";
-import AuthorizationPage from "@/pages/AuthorizationPage.vue";
-import RegistrationPage from "@/pages/RegistrationPage.vue";
-import {createRouter, createWebHistory} from "vue-router";
+import News from "../components/News.vue";
+import Test from "../components/Test.vue";
+import About from "../components/About.vue";
+import Login from "../components/Login.vue";
+import Register from "../components/Register.vue";
+import Profile from "../components/Profile.vue";
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-    {
-        path: '/',
-        component: MainPage
-    },
+  {
+    path: "/",
+    component: News,
+  },
 
-    {
-        path: '/testpage',
-        component: TestPage
-    },
+  {
+    path: "/test",
+    component: Test,
+  },
 
-    {
-        path: '/about',
-        component: AboutPage
-    },
+  {
+    path: "/about",
+    component: About,
+  },
 
-    {
-        path: '/authorization',
-        component: AuthorizationPage
-    },
+  {
+    path: "/login",
+    component: Login,
+  },
 
-    {
-        path: '/registration',
-        component: RegistrationPage
-    },
-]
+  {
+    path: "/register",
+    component: Register,
+  },
+
+  {
+    path: "/profile",
+    component: Profile,
+  },
+];
 
 const router = createRouter({
-    routes,
-    history: createWebHistory(process.env.BASE_URL)
-})
+  routes,
+  history: createWebHistory(process.env.BASE_URL),
+});
 
 export default router;

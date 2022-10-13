@@ -86,7 +86,6 @@ export default {
 </script>
 <style scoped>
 .answer {
-  width: 600px;
   display: flex;
   padding: 5px 0px;
   transition: background-color 0.25s;
@@ -104,7 +103,7 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: white;
-  border: 2px solid rgba(7, 66, 103, 0.5);
+  border: 2px solid rgb(59 130 246 / 500);
   border-radius: 4px;
   font-size: 1.2rem;
   font-weight: 500;

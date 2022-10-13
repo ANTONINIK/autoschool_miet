@@ -23,7 +23,7 @@
         :index="index"
         :rightIndex="question.rightAnswerIndex"
         :questionIndex="question.id"
-        @userResponse = "userResponse"
+        @userResponse="userResponse"
       />
     </div>
   </div>
@@ -41,14 +41,14 @@ export default {
     },
   },
   methods: {
-    userResponse(indexAnswer){
-        if(!localStorage.getItem(this.question.id))
-            localStorage.setItem(this.question.id, indexAnswer);
+    userResponse(indexAnswer) {
+      if (!localStorage.getItem(this.question.id))
+        localStorage.setItem(this.question.id, indexAnswer);
     },
   },
   computed: {
     imgUrl() {
-      return require(`@/assets/img/${this.question.image}`);
+      return require(`@/assets/QuestionsImage/${this.question.image}`);
     },
   },
 };
@@ -59,11 +59,7 @@ export default {
   width: 600px;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
-}
-
-.image-frame {
-  background-color: white;
+  padding: 20px 20px;
 }
 
 .question-text {
@@ -72,9 +68,5 @@ export default {
   display: flex;
   align-items: center;
   padding-left: 10px;
-}
-
-.answers-container {
-  background-color: #c2b9b0;
 }
 </style>

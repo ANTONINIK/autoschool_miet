@@ -30,8 +30,8 @@ app.post("/register", (request, response) => {
       databases.push({
         id: generateUniqueID(),
         email: request.body.email,
-        nickname: "request.body.nickname",
         password: request.body.password,
+        nickname: request.body.nickname,
       });
 
       fs.writeFile(
