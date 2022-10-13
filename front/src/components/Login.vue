@@ -23,24 +23,31 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
-  name: 'Login',
+  name: "Login",
   data() {
     return {
-      email: '',
-      password: '',
+      email: "",
+      password: "",
     };
   },
   methods: {
     async handleSubmit() {
-      const response = await axios.post('login', {
-        email: this.email,
-        password: this.password,
-      });
-
-      localStorage.setItem('token', response.data.token);
-      this.$router.push('/');
+      await axios
+        .post("login", {
+          email: this.email,
+          password: this.password,
+        })
+        .then((response) => {
+          if (response.status == 200) {
+            localStorage.setItem("token", response.data); 
+            this.$router.push("/");
+          }
+          if (response.status == 203) {
+            alert("Неверный пароль или логин");
+          }
+        });
     },
   },
 };

@@ -26,28 +26,19 @@
 </template>
 
 <script>
-import axios from 'axios'
+import {mapGetters} from 'vuex'
 import TheFooter from '@/components/TheFooter.vue';
 import TheNavBar from '@/components/TheNavBar.vue';
 
 export default {
-  name: "App",
+  name: "Mainpage",
   components: {
     TheFooter,
     TheNavBar,
   },
-
-  data() {
-    return {
-      user: null,
-    }
+   computed: {
+    ...mapGetters(['user'])
   },
-
-  async created() {
-    const response = await axios.get('user');
-
-    this.user = response.data;
-  }
 };
 </script>
 
