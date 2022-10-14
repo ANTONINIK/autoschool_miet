@@ -10,8 +10,6 @@
 import axios from "axios";
 import TheNavBar from "./components/TheNavBar.vue";
 import TheFooter from "./components/TheFooter.vue";
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 export default {
   name: "App",
   components: { TheNavBar, TheFooter },
