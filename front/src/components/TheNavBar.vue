@@ -1,7 +1,8 @@
 <template>
   <section id="navigation" class="container">
-    <nav>
-      <ul class="menu">
+    <img src="..\assets\QuestionsImage\icon.png" alt="" class="logo">
+    <nav class="navig">
+      <ul class="menu mb-0">
         <li class="menu-item">
           <a class="menu-link" @click="$router.push('/about')">Lamako</a>
         </li>
@@ -48,33 +49,61 @@ export default {
 };
 </script>
 
-<style>
-#navigation.container {
+<style scoped>
+.container {
   max-width: 100%;
-}
-
-#navigation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
   color: #fff;
   background-color: rgb(59 130 246 / 500);
 }
 
-#navigation .menu {
+ .menu {
   display: flex;
   flex-direction: row;
   list-style-type: none;
+  padding: 1rem 0;
 }
 
-#navigation .menu .menu-item {
-  padding: 1rem 0;
+ .menu .menu-item {
   margin: 0 1rem;
   cursor: pointer;
+  border:1px solid transparent;
+  border-radius: 3px;
+  will-change: border;
+  transition: 0.3s ease-in-out;
+}
+
+ .menu-link{
+  padding: 1rem 0;
+  margin: 0 1rem;
+  text-decoration: none;
+  color:white;
+  font-size: 18px;
+}
+
+ .logo{
+  height: 45px;
+  width: 45px;
+  display: flex;
+}
+
+ .navig{
+  display: flex;
 }
 
 @media (hover) {
-  #navigation .menu .menu-item:hover {
-    opacity: 0.5;
-    text-decoration: underline;
+   .menu .menu-item:hover {
+    border-color: #fff;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .menu{
+    flex-direction: column;
   }
 }
 </style>

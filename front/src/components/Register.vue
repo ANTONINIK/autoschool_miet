@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-gray-100 flex items-center justify-center h-screen">
+  <section class="flex items-center justify-center h-screen">
     <form @submit.prevent="handleSubmit">
       <div class="bg-white w-96 p-6 rounded shadow-sm">
         <div class="flex items-center justify-center mb-4">
@@ -74,4 +74,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+section{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+</style>
