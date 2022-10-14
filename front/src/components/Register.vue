@@ -55,6 +55,11 @@ export default {
       nickname: "",
     };
   },
+  created() {
+    if(localStorage.getItem("token") !== null) {
+      this.$router.push("/");
+    }
+  },
   methods: {
     async handleSubmit() {
       await axios
