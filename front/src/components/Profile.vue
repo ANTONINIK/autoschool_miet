@@ -92,6 +92,11 @@
 import { mapGetters } from "vuex";
 export default {
   name: "Profile",
+  created() {
+    if(localStorage.getItem("token") == null) {
+      this.$router.push("/login");
+    }
+  },
   computed: {
     ...mapGetters(["user"]),
   },
