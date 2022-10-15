@@ -1,6 +1,6 @@
 <template>
   <section id="navigation" class="container">
-    <img src="..\assets\QuestionsImage\icon.png" alt="" class="logo">
+    <img src="../assets/UsersImage/icon.png" alt="" class="logo">
     <nav class="navig">
       <ul class="menu mb-0">
         <li class="menu-item">
