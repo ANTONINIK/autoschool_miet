@@ -17,11 +17,13 @@
       </button>
     </div>
 
-    <div class="mark-question">
+    <div class="buttons-container">
       <div class="mark-question-container">
         <p>Вопрос №{{ currentQuestionNumber }}</p>
         <input type="button" class="btn" value="Отметить" />
       </div>
+      <input type="button" class="btn" value="Начать заново" @click = "newTest"/>
+      <input type="button" class="btn" value="Завершить тест" @click = "completeTest"/>
     </div>
     <TestQuestion :question="currentQuestion" />
   </section>
@@ -40,6 +42,11 @@ export default {
       currentQuestionIndex: 0,
     };
   },
+  created() {
+    if(localStorage.getItem("token") == null) {
+      this.$router.push("/");
+    }
+  },
   components: { TestTimeBar, TestQuestion },
   computed: {
     currentQuestion() {
@@ -49,12 +56,20 @@ export default {
       return this.currentQuestionIndex + 1;
     },
   },
+  methods: {
+    completeTest() {
+      this.$router.push("/result");
+    },
+    newTest() {
+
+    }
+  },
 };
 </script>
 <style scoped>
 p {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .content {
   display: flex;
@@ -65,7 +80,7 @@ p {
   justify-content: center;
 }
 
-.mark-question {
+.buttons-container {
   display: flex;
   justify-content: end;
 }
@@ -78,7 +93,7 @@ p {
 
 .question-info {
   color: white;
-  margin-right: 10px;
+  margin: 10px;
 }
 
 .btn-container {
