@@ -4,7 +4,7 @@
       <div class="opacity-black">
         <div class="container">
           <h1>О нас</h1>
-          <h3>информация</h3>
+          <!-- <h3>информация</h3> -->
         </div>
       </div>
     </div>
@@ -13,12 +13,12 @@
         <div class="row">
           <div class="col-12 col-md-10 col-lg-8 ml-auto mr-auto pt-10 pb-10">
             <h2>Что такое Lamako?</h2>
-            <p>ответ</p>
+            <p>Сервис, предоставляющий возможность подготовки к экзамену ПДД</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="benefits pt-10 pb-10">
+    <!-- <div class="benefits pt-10 pb-10">
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -28,7 +28,7 @@
             <div class="content-box">
               <img src="../assets/UsersImage/photo.jpg" alt="">
               <h3>Преимущество 1</h3>
-              <p>Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание
+              <p>Описание преимущества Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание
                 преимущсетва </p>
             </div>
           </div>
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="workers pt-10 pb-10">
       <div class="container">
         <div class="row">
@@ -67,23 +67,23 @@
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
+              <img src="../assets/UsersImage/yuriy.jpg" alt="">
               <h3>Лаврушкин Юрий</h3>
-              <p>Немного текста, описания, приколов и другой фигни</p>
+              <!-- <p>Немного текста, описания, приколов и другой фигни</p> -->
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
+              <img src="../assets/UsersImage/anton.jpg" alt="">
               <h3>Марьянский Антон</h3>
-              <p>Немного текста, описания, приколов и другой фигни</p>
+              <!-- <p>Немного текста, описания, приколов и другой фигни</p> -->
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4 ml-auto mr-auto">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
+              <img src="../assets/UsersImage/igor.jpg" alt="">
               <h3>Колесов Игорь</h3>
-              <p>Немного текста, описания, приколов и другой фигни</p>
+              <!-- <p>Немного текста, описания, приколов и другой фигни</p> -->
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default {
 
 <style>
 .header {
-  background: url("../assets/UsersImage/car-bg.jpg");
+  background: url("../assets/UsersImage/bmw.jpg");
   background-position: center center;
   height: 70vh;
   position: relative;
