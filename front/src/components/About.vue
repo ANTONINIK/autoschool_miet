@@ -3,8 +3,8 @@
     <div class="header">
       <div class="opacity-black">
         <div class="container">
-          <h1>О нас</h1>
-          <h3>информация</h3>
+          <h1>LAMAKO</h1>
+          <h3>WEB - ПРОГРАММА «ЭКЗАМЕН ПДД»</h3>
         </div>
       </div>
     </div>
@@ -12,8 +12,8 @@
       <div class="container">
         <div class="row">
           <div class="col-12 col-md-10 col-lg-8 ml-auto mr-auto pt-10 pb-10">
-            <h2>Что такое Lamako?</h2>
-            <p>ответ</p>
+            <h2>Что такое LAMAKO?</h2>
+            <p>Сервис, предоставляющий возможность подготовки к экзамену ПДД</p>
           </div>
         </div>
       </div>
@@ -26,34 +26,42 @@
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
-              <h3>Преимущество 1</h3>
-              <p>Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание
-                преимущсетва </p>
+              <img src="../assets/UsersImage/advantage1.jpg" alt="" />
+              <h3>Быстрый и удобный способ подготовиться к экзамену</h3>
+              <p>
+                Есть возможность изучить билеты по темам или попробовать пройти
+                экзамен
+              </p>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
-              <h3>Преимущество 1</h3>
-              <p>Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание
-                преимущсетва </p>
+              <img src="../assets/UsersImage/advantage2.jpg" alt="" />
+              <h3>Обработка ваших ошибок с выдачей рекомендаций</h3>
+              <p>
+                В профиле вы можете посмотреть какие темы вам даются хорошо, и
+                на какие лучше обратить внимание
+              </p>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
-              <h3>Преимущество 1</h3>
-              <p>Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание
-                преимущсетва </p>
+              <img src="../assets/UsersImage/advantage3.jpg" alt="" />
+              <h3>Держим Вас в курсе всех последних изменений от ГИБДД</h3>
+              <p>
+                Наша команда постоянно следит за всеми обновлениями в порядке
+                проведения теоретического и практического экзамена
+              </p>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-3">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
-              <h3>Преимущество 1</h3>
-              <p>Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание преимущсетва Описание
-                преимущсетва </p>
+              <img src="../assets/UsersImage/advantage4.jpg" alt="" />
+              <h3>Сохранение результатов экзамена в профиле</h3>
+              <p>
+                Результаты каждой попытки записаваются в профиль, чтобы Вы могли
+                удобно анализировать свои ошибки
+              </p>
             </div>
           </div>
         </div>
@@ -67,23 +75,20 @@
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
+              <img src="../assets/UsersImage/yuriy.jpg" alt="" />
               <h3>Лаврушкин Юрий</h3>
-              <p>Немного текста, описания, приколов и другой фигни</p>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
+              <img src="../assets/UsersImage/anton.jpg" alt="" />
               <h3>Марьянский Антон</h3>
-              <p>Немного текста, описания, приколов и другой фигни</p>
             </div>
           </div>
           <div class="col-12 col-md-6 col-lg-4 ml-auto mr-auto">
             <div class="content-box">
-              <img src="../assets/UsersImage/photo.jpg" alt="">
+              <img src="../assets/UsersImage/igor.jpg" alt="" />
               <h3>Колесов Игорь</h3>
-              <p>Немного текста, описания, приколов и другой фигни</p>
             </div>
           </div>
         </div>
@@ -100,9 +105,9 @@ export default {
 
 <style scoped>
 .header {
-  background: url("../assets/UsersImage/car-bg.jpg");
+  background: url("../assets/UsersImage/about.jpg");
   background-position: center center;
-  height: 70vh;
+  height: 45vh;
   position: relative;
 }
 
@@ -116,14 +121,14 @@ export default {
 }
 
 .opacity-black .container {
-  color: white; 
+  color: white;
   padding-top: 100px;
 }
 
-.benefits{
+.benefits {
   background-color: rgba(0, 0, 0, 0.2);
 }
-.content-box{
+.content-box {
   padding: 0;
   border-radius: 20px;
   transition: 0.3s ease-in-out;
@@ -132,15 +137,15 @@ export default {
   background-color: white;
 }
 
-.img{
+.img {
   max-width: 100%;
   overflow: hidden;
   object-fit: contain;
   will-change: scale;
 }
 
-@media(hover){
-  .content-box:hover{
+@media (hover) {
+  .content-box:hover {
     border: 3px solid #fff;
   }
 }

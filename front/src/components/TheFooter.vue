@@ -19,7 +19,6 @@ export default {
   width: 100%;
   background-color: #222222;
   line-height: 1.3;
-  font-family: Menlo, monospace;
 }
 
 .text-wrapper {

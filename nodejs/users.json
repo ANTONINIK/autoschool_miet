@@ -1,38 +1,209 @@
 [
     {
-        "id": "2b18572496d8c0b3",
-        "email": "antoninik@yandex.ru",
-        "password": "12345",
-        "nickname": "antoninik"
-    },
-    {
-        "id": "5bc13b899eb79988",
-        "email": "a",
-        "password": "a",
-        "nickname": ""
-    },
-    {
-        "id": "dd1395185ebbf5d3",
-        "email": "a",
-        "password": "a",
-        "nickname": ""
-    },
-    {
-        "id": "39f571ba5b5907e2",
-        "email": "a",
-        "password": "z",
-        "nickname": ""
-    },
-    {
-        "id": "9d4cd078e7eca176",
-        "email": "abaa",
-        "password": "a",
-        "nickname": ""
-    },
-    {
-        "id": "7af15aebb38844c7",
-        "email": "a@a",
-        "password": "a",
-        "nickname": "a"
+        "id": "d6241c443141d140",
+        "email": "123@123",
+        "password": "123",
+        "nickname": "123@123",
+        "results": [
+            {
+                "score": "2",
+                "timeLeft": "19:50",
+                "userResponse": [
+                    {
+                        "indexAnswer": 0,
+                        "correct": false,
+                        "indexQuestion": 12
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": true,
+                        "indexQuestion": 5
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 11
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 16
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 6
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 18
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": true,
+                        "indexQuestion": 15
+                    }
+                ],
+                "date": "26/10/2022"
+            },
+            {
+                "score": "3",
+                "timeLeft": "19:53",
+                "userResponse": [
+                    {
+                        "indexAnswer": 0,
+                        "correct": true,
+                        "indexQuestion": 7
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": true,
+                        "indexQuestion": 4
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": true,
+                        "indexQuestion": 14
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 16
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 6
+                    }
+                ],
+                "date": "26/10/2022"
+            },
+            {
+                "score": "1",
+                "timeLeft": "19:54",
+                "userResponse": [
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 15
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": true,
+                        "indexQuestion": 14
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 8
+                    }
+                ],
+                "date": "26/10/2022"
+            },
+            {
+                "score": "1",
+                "timeLeft": "20:00",
+                "userResponse": [
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 15
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": true,
+                        "indexQuestion": 14
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 8
+                    }
+                ],
+                "date": "26/10/2022"
+            },
+            {
+                "score": "0",
+                "timeLeft": "19:57",
+                "userResponse": [
+                    {
+                        "indexAnswer": 0,
+                        "correct": false,
+                        "indexQuestion": 17
+                    }
+                ],
+                "date": "27/10/2022"
+            },
+            {
+                "score": "2",
+                "timeLeft": "20:00",
+                "userResponse": [
+                    {
+                        "indexAnswer": 0,
+                        "correct": false,
+                        "indexQuestion": 12
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": true,
+                        "indexQuestion": 5
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 11
+                    },
+                    {
+                        "indexAnswer": 1,
+                        "correct": false,
+                        "indexQuestion": 16
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 6
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 18
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": true,
+                        "indexQuestion": 15
+                    }
+                ],
+                "date": "27/10/2022"
+            },
+            {
+                "score": "1",
+                "timeLeft": "19:20",
+                "userResponse": [
+                    {
+                        "indexAnswer": 2,
+                        "correct": true,
+                        "indexQuestion": 0
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 1
+                    },
+                    {
+                        "indexAnswer": 0,
+                        "correct": false,
+                        "indexQuestion": 5
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 6
+                    }
+                ],
+                "date": "27/10/2022"
+            }
+        ]
     }
 ]

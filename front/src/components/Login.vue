@@ -41,6 +41,11 @@ export default {
       password: "",
     };
   },
+  created() {
+    if (localStorage.getItem("token") !== null) {
+      this.$router.push("/");
+    }
+  },
   methods: {
     async handleSubmit() {
       await axios
@@ -51,7 +56,7 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             localStorage.setItem("token", response.data);
-            this.$router.go("/")
+            this.$router.go("/");
           }
           if (response.status == 203) {
             alert("Неверный пароль или логин");

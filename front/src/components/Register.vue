@@ -5,7 +5,7 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center">
           <form @submit.prevent="handleSubmit" class="login-form">
             <div class="img-wrapper">
-              <img src="..\assets\QuestionsImage\icon.png" alt="" class="" />
+              <img src="..\assets\UsersImage\icon.png" alt="" class="" />
             </div>
 
             <label for="nickname" class="">Имя</label>
@@ -16,13 +16,11 @@
 
             <label for="pass" class="">Пароль</label>
             <input id="pass" type="password" class="" required v-model="password" />
-
             <div class="button-wrapper">
               <button type="submit" class="">
               Зарегистрироваться
             </button>
             </div>
-            
           </form>
         </div>
       </div>
@@ -40,6 +38,11 @@ export default {
       password: "",
       nickname: "",
     };
+  },
+  created() {
+    if (localStorage.getItem("token") !== null) {
+      this.$router.push("/");
+    }
   },
   methods: {
     async handleSubmit() {
@@ -121,4 +124,3 @@ button{
 }
 
 </style>
-

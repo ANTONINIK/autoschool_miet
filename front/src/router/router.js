@@ -4,6 +4,7 @@ import About from "../components/About.vue";
 import Login from "../components/Login.vue";
 import Register from "../components/Register.vue";
 import Profile from "../components/Profile.vue";
+import Result from "../components/Result.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -35,6 +36,11 @@ const routes = [
   {
     path: "/profile",
     component: Profile,
+  },
+
+  {
+    path: "/result",
+    component: Result,
   },
 ];
 
