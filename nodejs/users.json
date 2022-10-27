@@ -176,6 +176,33 @@
                     }
                 ],
                 "date": "27/10/2022"
+            },
+            {
+                "score": "1",
+                "timeLeft": "19:20",
+                "userResponse": [
+                    {
+                        "indexAnswer": 2,
+                        "correct": true,
+                        "indexQuestion": 0
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 1
+                    },
+                    {
+                        "indexAnswer": 0,
+                        "correct": false,
+                        "indexQuestion": 5
+                    },
+                    {
+                        "indexAnswer": 2,
+                        "correct": false,
+                        "indexQuestion": 6
+                    }
+                ],
+                "date": "27/10/2022"
             }
         ]
     }

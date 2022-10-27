@@ -130,7 +130,7 @@ export default {
 }
 
 .btn {
-  border-color: #ac2838;
+  border-color: rgb(218, 44, 44) rgb(209, 209, 209) rgb(186, 186, 186);
   border-style: solid;
   border-width: 2px;
   padding: 1px 7px 2px;
@@ -139,6 +139,6 @@ export default {
   display: inline-block;
   text-align: start;
   margin: 5px;
-  font: 400 16px system-ui;
+  font: 400 11px system-ui;
 }
 </style>
