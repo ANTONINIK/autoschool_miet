@@ -1,8 +1,8 @@
 <template>
   <section id="navigation" class="container">
     <img src="..\assets\QuestionsImage\icon.png" alt="" class="logo">
-    <nav class="navig">
-      <ul class="menu mb-0">
+    <nav class="navigation">
+      <ul class="menu mb-0" :class="{active: isActive}">
         <li class="menu-item">
           <a class="menu-link" @click="$router.push('/about')">Lamako</a>
         </li>
@@ -28,6 +28,11 @@
         </li>
       </ul>
     </nav>
+    <div class="burger" @click="burgerClick">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
   </section>
 </template>
 
@@ -35,12 +40,20 @@
 import { mapGetters } from "vuex";
 export default {
   name: "TheNavBar",
+  data(){
+    return{
+      isActive: false,
+    }
+  },
   methods: {
     logout() {
       localStorage.removeItem('token');
       this.$store.dispatch('user', null);
       this.$router.push('/');
     },
+    burgerClick(){
+      this.isActive = !this.isActive;
+    }
   },
 
   computed: {
@@ -91,8 +104,28 @@ export default {
   display: flex;
 }
 
- .navig{
+ .navigation{
   display: flex;
+  position: relative;
+}
+
+.burger{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 26px;
+  opacity: 0;
+  visibility: hidden;
+}
+.burger .line{
+  width: 2rem;
+  height: 2px;
+  background-color: white;
+}
+
+.active{
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 @media (hover) {
@@ -104,6 +137,18 @@ export default {
 @media screen and (max-width: 620px) {
   .menu{
     flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    color:black;
+  }
+
+  .burger{
+    opacity: 1;
+    visibility: visible;
   }
 }
 </style>

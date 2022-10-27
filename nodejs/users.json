@@ -4,5 +4,35 @@
         "email": "antoninik@yandex.ru",
         "password": "12345",
         "nickname": "antoninik"
+    },
+    {
+        "id": "5bc13b899eb79988",
+        "email": "a",
+        "password": "a",
+        "nickname": ""
+    },
+    {
+        "id": "dd1395185ebbf5d3",
+        "email": "a",
+        "password": "a",
+        "nickname": ""
+    },
+    {
+        "id": "39f571ba5b5907e2",
+        "email": "a",
+        "password": "z",
+        "nickname": ""
+    },
+    {
+        "id": "9d4cd078e7eca176",
+        "email": "abaa",
+        "password": "a",
+        "nickname": ""
+    },
+    {
+        "id": "7af15aebb38844c7",
+        "email": "a@a",
+        "password": "a",
+        "nickname": "a"
     }
 ]

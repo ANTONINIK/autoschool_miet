@@ -1,46 +1,32 @@
 <template>
-  <section class="flex items-center justify-center h-screen">
-    <form @submit.prevent="handleSubmit">
-      <div class="bg-white w-96 p-6 rounded shadow-sm">
-        <div class="flex items-center justify-center mb-4">
-          <img src="..\assets\QuestionsImage\icon.png" alt="" class="h-32" />
+  <section class="">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center">
+          <form @submit.prevent="handleSubmit" class="login-form">
+            <div class="img-wrapper">
+              <img src="..\assets\QuestionsImage\icon.png" alt="" class="" />
+            </div>
+
+            <label for="nickname" class="">Имя</label>
+            <input id="nickname" type="text" class="" required v-model="nickname" />
+
+            <label for="login" class="">Email</label>
+            <input id="login" type="email" class="" required v-model="email" />
+
+            <label for="pass" class="">Пароль</label>
+            <input id="pass" type="password" class="" required v-model="password" />
+
+            <div class="button-wrapper">
+              <button type="submit" class="">
+              Зарегистрироваться
+            </button>
+            </div>
+            
+          </form>
         </div>
-
-        <label for="nickname" class="text-gray-700">Имя</label>
-        <input
-          id="nickname"
-          type="text"
-          class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4"
-          required
-          v-model="nickname"
-        />
-
-        <label for="login" class="text-gray-700">Email</label>
-        <input
-          id="login"
-          type="email"
-          class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4"
-          required
-          v-model="email"
-        />
-
-        <label for="pass" class="text-gray-700">Пароль</label>
-        <input
-          id="pass"
-          type="password"
-          class="w-full py-2 bg-gray-100 text-gray-500 px-1 outline-none mb-4"
-          required
-          v-model="password"
-        />
-
-        <button
-          type="submit"
-          class="bg-blue-500 w-full text-gray-100 py-2 rounded hover:bg-blue-600 transition-colors"
-        >
-          Зарегистрироваться
-        </button>
       </div>
-    </form>
+    </div>
   </section>
 </template>
 
@@ -74,8 +60,65 @@ export default {
 };
 </script>
 
-<style>
-section{
-  background-color: rgba(0, 0, 0, 0.2);
+<style scoped>
+.img-wrapper {
+  text-align: center;
 }
+
+img {
+  overflow: hidden;
+  width: 80px;
+  height: 80px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-color: transparent;
+}
+
+.login-form {
+  padding: 2rem;
+  background-color: rgb(59 130 246 / 500);
+  border-radius: 8px;
+}
+
+section {
+  padding: 50px 0px;
+  color: white;
+}
+
+.form-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button{
+  color: white;
+  background-color: transparent;
+  width: 70%;
+  height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  border-color: white;
+  transition: 0.3s ease-in-out;
+  will-change: background-color;
+}
+
+.button-wrapper{
+  text-align: center;
+}
+
+@media(hover){
+  button:hover{
+    background-color: rgb(117, 36, 215);
+  }
+}
+
 </style>
+

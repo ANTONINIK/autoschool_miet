@@ -98,7 +98,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header {
   background: url("../assets/UsersImage/car-bg.jpg");
   background-position: center center;

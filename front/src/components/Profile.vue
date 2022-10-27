@@ -98,7 +98,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .btn {
   border-color: rgb(218, 44, 44) rgb(209, 209, 209) rgb(186, 186, 186);
   border-style: solid;
