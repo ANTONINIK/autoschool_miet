@@ -32,6 +32,7 @@ app.post("/register", (request, response) => {
         email: request.body.email,
         password: request.body.password,
         nickname: request.body.nickname,
+        results: [],
       });
 
       fs.writeFile(
@@ -65,6 +66,36 @@ app.post("/login", (request, response) => {
       if (result) return response.send(result.id);
       else return response.sendStatus(203);
     }
+  });
+});
+
+app.post("/addResult", (request, response) => {
+  fs.readFile("./users.json", "utf8", (err, data) => {
+    console.log(request.body);
+    if (err) {
+      console.log(`Ошибка чтения файла с диска: ${err}`);
+    } else {
+      const databases = JSON.parse(data);
+      const result = {
+        score: request.body.score,
+        timeLeft: request.body.timeLeft,
+        userResponse: request.body.userResponse,
+        date: request.body.date
+      }
+      databases
+        .find((user) => user.id === request.body.token)
+        .results.push(result);
+      fs.writeFile(
+        "./users.json",
+        JSON.stringify(databases, null, 4),
+        (err) => {
+          if (err) {
+            console.log(`Ошибка записи файла: ${err}`);
+          }
+        }
+      );
+    }
+    return response.sendStatus(200);
   });
 });
 
