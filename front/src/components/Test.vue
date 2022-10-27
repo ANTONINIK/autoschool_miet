@@ -1,29 +1,32 @@
 <template>
   <section class="content">
-    <TestTimeBar :questionNumber="currentQuestionNumber" />
-
+    <TestBar :questionNumber="currentQuestionNumber" />
     <div id="touch-scroller">
       <button
         v-for="(question, indexButton) in questions"
         :key="indexButton"
         @click="currentQuestionIndex = indexButton"
         class="btn"
-        :style="{
-          'background-color':
-            indexButton === currentQuestionIndex ? '#3B82F6' : '',
-        }"
+        :class="[
+          { markedButton: markedButtons[indexButton] },
+          { currentQuestionButton: currentQuestionIndex === indexButton },
+        ]"
       >
         {{ indexButton + 1 }}
       </button>
     </div>
-
     <div class="buttons-container">
       <div class="mark-question-container">
         <p>Вопрос №{{ currentQuestionNumber }}</p>
-        <input type="button" class="btn" value="Отметить" />
+        <input type="button" class="btn" value="Отметить" @click="markButton" />
       </div>
-      <input type="button" class="btn" value="Начать заново" @click = "newTest"/>
-      <input type="button" class="btn" value="Завершить тест" @click = "completeTest"/>
+      <input type="button" class="btn" value="Начать заново" @click="newTest" />
+      <input
+        type="button"
+        class="btn"
+        value="Завершить тест"
+        @click="completeTest"
+      />
     </div>
     <TestQuestion :question="currentQuestion" />
   </section>
@@ -31,23 +34,37 @@
 
 <script>
 import questionsData from "../assets/questionsData.json";
-import TestTimeBar from "./TestTimeBar.vue";
+import TestBar from "./TestBar.vue";
 import TestQuestion from "./TestQuestion.vue";
 
 export default {
   name: "Test",
   data() {
     return {
-      questions: questionsData,
+      questions: [],
       currentQuestionIndex: 0,
+      markedButtons: new Array(20).fill(false),
     };
   },
   created() {
-    if(localStorage.getItem("token") == null) {
+    localStorage.removeItem("userResponses");
+    if (localStorage.getItem("token") == null) {
       this.$router.push("/");
     }
+    const numbersQuestions = new Array(questionsData.length)
+      .fill(0)
+      .map((item, i) => i);
+    const result = [];
+    while (result.length < 20) {
+      let index = Math.floor(Math.random() * numbersQuestions.length);
+      result.push(questionsData[numbersQuestions[index]]);
+      if (index > -1) {
+        numbersQuestions.splice(index, 1);
+      }
+    }
+    this.questions = result;
   },
-  components: { TestTimeBar, TestQuestion },
+  components: { TestBar, TestQuestion },
   computed: {
     currentQuestion() {
       return this.questions[this.currentQuestionIndex];
@@ -58,11 +75,25 @@ export default {
   },
   methods: {
     completeTest() {
-      this.$router.push("/result");
+      const userResponses = JSON.parse(localStorage.getItem("userResponses"));
+      if (userResponses.length > 0) {
+        let score = 0;
+        userResponses.forEach((userResponse) => {
+          if (userResponse.correct) score++;
+        });
+        localStorage.setItem("score", score);
+        localStorage.setItem("date", new Date().toLocaleDateString("en-GB"));
+        this.$router.push("/result");
+      }
     },
     newTest() {
-
-    }
+      localStorage.removeItem("userResponses");
+      this.$router.go("/");
+    },
+    markButton() {
+      this.markedButtons[this.currentQuestionIndex] =
+        !this.markedButtons[this.currentQuestionIndex];
+    },
   },
 };
 </script>
@@ -72,12 +103,12 @@ p {
   margin-bottom: 0px;
 }
 .content {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Roboto", sans-serif;
-  font-weight: 300;
-  justify-content: center;
+  font-weight: 400;
+  padding-top: 30px;
 }
 
 .buttons-container {
@@ -91,17 +122,12 @@ p {
   align-items: center;
 }
 
-.question-info {
-  color: white;
-  margin: 10px;
-}
-
 .btn-container {
   margin: 10px;
 }
 
 .btn {
-  border-color: rgb(59 130 246 / 500);
+  border-color: #3b82f6;
   border-style: solid;
   border-width: 2px;
   padding: 1px 7px 2px;
@@ -111,5 +137,13 @@ p {
   text-align: start;
   margin: 5px;
   font: 400 11px system-ui;
+}
+
+.markedButton {
+  border-color: #a52a2a;
+}
+
+.currentQuestionButton {
+  background-color: #3b82f6;
 }
 </style>

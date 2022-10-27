@@ -28,4 +28,13 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700;900&display=swap");
+.app {
+  font-family: "Noto Sans", sans-serif;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+</style>

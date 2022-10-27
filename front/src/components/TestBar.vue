@@ -4,38 +4,52 @@
       <div class="test-title">
         <p>Тест для категории B</p>
       </div>
-      <div class="remaining-time">
-        <p>Осталось времени:</p>
-        <div class="time-counter">29:45</div>
-      </div>
       <div class="answered">
         <p>Количество вопросов:</p>
         <div class="counter">{{ questionNumber }} из 20</div>
+        <div class="remaining-time">
+          <p>Осталось времени:</p>
+          <timer />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Timer from "./TestBarTimer.vue";
 export default {
-  name: "TestTimeBar",
+  components: { Timer },
+  name: "TestBar",
   props: {
     questionNumber: {
       type: Number,
       required: true,
     },
   },
+  mounted() {
+    this.startTimer();
+  },
+  methods: {
+    startTimer() {
+      this.timerInterval = setInterval(() => (this.timePassed += 1), 1000);
+    },
+  },
 };
 </script>
 <style scoped>
+p {
+  margin: 10px;
+}
 .questions-progress {
   width: var(--page-max-width);
   max-height: 70px;
   display: flex;
   justify-content: center;
-  background-color: antiquewhite;
+  border-radius: 10px;
   border: 2px solid rgb(0, 0, 0, 0.25);
   margin: 10px 0;
+  font-weight: 400;
 }
 .questions-progress-wrapper {
   width: 100%;
@@ -44,19 +58,11 @@ export default {
   justify-content: space-between;
 }
 .test-title {
-  font-weight: 400;
   margin: 0px 5px;
   display: flex;
   align-items: center;
 }
 .remaining-time {
-  font-weight: 500;
-  margin: 0px 5px;
-  display: flex;
-  align-items: center;
-}
-.time-counter {
-  font-weight: 500;
   margin: 0px 5px;
   display: flex;
   align-items: center;
