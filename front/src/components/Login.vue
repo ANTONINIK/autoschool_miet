@@ -5,7 +5,7 @@
         <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center">
           <form @submit.prevent="handleSubmit" class="login-form">
             <div class="img-wrapper">
-              <img src="..\assets\QuestionsImage\icon.png" alt="" class="" />
+              <img src="..\assets\UsersImage\icon.png" alt="" class="" />
             </div>
 
             <label for="login" class="">Email</label>
@@ -68,6 +68,10 @@ export default {
 </script>
 
 <style scoped>
+section {
+  height: 100vh;
+}
+
 .img-wrapper {
   text-align: center;
 }
