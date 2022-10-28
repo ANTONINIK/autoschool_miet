@@ -149,4 +149,10 @@ export default {
     visibility: visible;
   }
 }
+
+section{
+  position: fixed;
+  top: 0;
+  z-index: 900;
+}
 </style>
