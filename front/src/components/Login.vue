@@ -100,7 +100,7 @@ input {
 }
 
 section {
-  padding: 50px 0px;
+  padding: 5rem 1rem;
   color: white;
 }
 

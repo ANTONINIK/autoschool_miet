@@ -10,20 +10,17 @@
     <div class="about text-center">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-10 col-lg-8 ml-auto mr-auto pt-10 pb-10">
+          <div class="col-12 col-md-10 col-lg-8" style="margin:auto">
             <h2>Закон и ПДД</h2>
             <p>{{ new Date().toLocaleDateString("en-GB") }}</p>
           </div>
         </div>
       </div>
     </div>
-    <div class="benefits pt-10 pb-10">
+    <div class="news pt-10 pb-10">
       <div class="container">
         <div class="row">
-          <!-- <div class="col-12">
-            <h2 class="mb-6">Новости из мира автомобилей</h2>
-          </div> -->
-          <div class="col-12">
+          <div class="col-12 col-lg-10" style="margin:auto;">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -44,7 +41,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-12 col-lg-10" style="margin:auto;">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -64,10 +61,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12">
-            <!-- <h2 class="mb-6">Новости из мира автоспорта</h2> -->
-          </div>
-          <div class="col-12">
+          <div class="col-12 col-lg-10" style="margin:auto;">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -88,7 +82,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-12 col-lg-10" style="margin:auto;">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -109,7 +103,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-12 col-lg-10" style="margin:auto;">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -129,7 +123,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12">
+          <div class="col-12 col-lg-10" style="margin:auto;">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -160,6 +154,10 @@ export default {
 </script>
 
 <style scoped>
+
+.container{
+  padding: 3rem 1rem;
+}
 .header {
   background: url("../assets/UsersImage/news.jpg");
   background-position: center center;
@@ -181,8 +179,8 @@ export default {
   padding-top: 100px;
 }
 
-.benefits {
-  background-color: rgba(0, 0, 0, 0.2);
+.news {
+  background-color: rgb(59 130 246 / 500);
 }
 
 .content-box {
@@ -192,6 +190,7 @@ export default {
   overflow: hidden;
   margin-bottom: 20px;
   background-color: #fff;
+  border: 3px solid black;
 }
 
 .content-box .row .col-12:first-child {
@@ -208,7 +207,7 @@ export default {
 
 @media (hover) {
   .content-box:hover {
-    border: 3px solid #fff;
+    border: 3px solid rgb(117, 36, 215);
   }
 }
 </style>

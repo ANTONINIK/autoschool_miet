@@ -2,16 +2,11 @@
   <section class="content">
     <TestBar :questionNumber="currentQuestionNumber" />
     <div id="touch-scroller">
-      <button
-        v-for="(question, indexButton) in questions"
-        :key="indexButton"
-        @click="currentQuestionIndex = indexButton"
-        class="btn"
-        :class="[
+      <button v-for="(question, indexButton) in questions" :key="indexButton"
+        @click="currentQuestionIndex = indexButton" class="btn" :class="[
           { markedButton: markedButtons[indexButton] },
           { currentQuestionButton: currentQuestionIndex === indexButton },
-        ]"
-      >
+        ]">
         {{ indexButton + 1 }}
       </button>
     </div>
@@ -21,12 +16,7 @@
         <input type="button" class="btn" value="Отметить" @click="markButton" />
       </div>
       <input type="button" class="btn" value="Начать заново" @click="newTest" />
-      <input
-        type="button"
-        class="btn"
-        value="Завершить тест"
-        @click="completeTest"
-      />
+      <input type="button" class="btn" value="Завершить тест" @click="completeTest" />
     </div>
     <TestQuestion :question="currentQuestion" />
   </section>
@@ -102,13 +92,14 @@ p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
+
 .content {
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: 400;
-  padding-top: 30px;
+  padding: 5rem 1rem;
 }
 
 .buttons-container {
@@ -145,5 +136,18 @@ p {
 
 .currentQuestionButton {
   background-color: #3b82f6;
+  color:white;
+}
+
+@media(hover) {
+  .btn:hover {
+    border-color: rgb(117, 36, 215);
+  }
+
+  .currentQuestionButton:hover {
+    border-color: rgb(117, 36, 215);
+    background-color: #3b82f6;
+    color:white;
+  }
 }
 </style>
