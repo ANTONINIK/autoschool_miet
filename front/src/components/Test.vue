@@ -87,7 +87,7 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
 p {
   margin-top: 0px;
   margin-bottom: 0px;
