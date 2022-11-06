@@ -2,7 +2,9 @@
   <section class="">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center">
+        <div
+          class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center"
+        >
           <form @submit.prevent="handleSubmit" class="login-form">
             <div class="img-wrapper">
               <img src="..\assets\UsersImage\icon.png" alt="" class="" />
@@ -12,7 +14,13 @@
             <input id="login" type="email" class="" required v-model="email" />
 
             <label for="pass" class="">Пароль</label>
-            <input id="pass" type="password" class="" required v-model="password" />
+            <input
+              id="pass"
+              type="password"
+              class=""
+              required
+              v-model="password"
+            />
 
             <div class="remember">
               <label for="RememberMe" class="">Запомнить меня</label>
@@ -20,9 +28,7 @@
             </div>
 
             <div class="button-wrapper">
-              <button type="submit" class="">
-                Войти
-              </button>
+              <button type="submit" class="">Войти</button>
             </div>
           </form>
         </div>
@@ -59,7 +65,11 @@ export default {
             this.$router.go("/");
           }
           if (response.status == 203) {
-            alert("Неверный пароль или логин");
+            this.$swal.fire({
+              icon: "error",
+              title: "Ошибка!",
+              text: "Неверный логин или пароль!",
+            });
           }
         });
     },
@@ -109,7 +119,7 @@ section {
   margin-right: auto;
 }
 
-button{
+button {
   color: white;
   background-color: transparent;
   width: 70%;
@@ -121,12 +131,12 @@ button{
   will-change: background-color;
 }
 
-.button-wrapper{
+.button-wrapper {
   text-align: center;
 }
 
-@media(hover){
-  button:hover{
+@media (hover) {
+  button:hover {
     background-color: rgb(117, 36, 215);
   }
 }

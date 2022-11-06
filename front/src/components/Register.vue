@@ -2,24 +2,36 @@
   <section class="">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center">
+        <div
+          class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center"
+        >
           <form @submit.prevent="handleSubmit" class="login-form">
             <div class="img-wrapper">
               <img src="..\assets\UsersImage\icon.png" alt="" class="" />
             </div>
 
             <label for="nickname" class="">Имя</label>
-            <input id="nickname" type="text" class="" required v-model="nickname" />
+            <input
+              id="nickname"
+              type="text"
+              class=""
+              required
+              v-model="nickname"
+            />
 
             <label for="login" class="">Email</label>
             <input id="login" type="email" class="" required v-model="email" />
 
             <label for="pass" class="">Пароль</label>
-            <input id="pass" type="password" class="" required v-model="password" />
+            <input
+              id="pass"
+              type="password"
+              class=""
+              required
+              v-model="password"
+            />
             <div class="button-wrapper">
-              <button type="submit" class="">
-              Зарегистрироваться
-            </button>
+              <button type="submit" class="">Зарегистрироваться</button>
             </div>
           </form>
         </div>
@@ -54,7 +66,12 @@ export default {
         })
         .then((response) => {
           if (response.status == 200) {
-            alert("Регистрация завершена");
+            this.$swal.fire({
+              icon: "success",
+              title: "Регистрация завершена",
+              showConfirmButton: false,
+              timer: 1300,
+            });
             this.$router.push("/login");
           }
         });
@@ -83,7 +100,7 @@ img {
   flex-direction: column;
 }
 
-input{
+input {
   border-radius: 8px;
   margin-bottom: 1rem;
   border-color: transparent;
@@ -105,7 +122,7 @@ section {
   margin-right: auto;
 }
 
-button{
+button {
   color: white;
   background-color: transparent;
   width: 70%;
@@ -117,14 +134,13 @@ button{
   will-change: background-color;
 }
 
-.button-wrapper{
+.button-wrapper {
   text-align: center;
 }
 
-@media(hover){
-  button:hover{
+@media (hover) {
+  button:hover {
     background-color: rgb(117, 36, 215);
   }
 }
-
 </style>

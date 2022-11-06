@@ -66,10 +66,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   margin: 0;
   color: #fff;
-  background-color: rgb(59 130 246 / 500);
+  background-color: rgb(51, 112, 212);
 }
 
 .menu {

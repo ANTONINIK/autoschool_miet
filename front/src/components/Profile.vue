@@ -88,6 +88,7 @@ export default {
 }
 
 .user-stats {
+  padding-top: 20px;
   margin-left: 50px;
   display: flex;
   flex-direction: column;

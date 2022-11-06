@@ -2,11 +2,17 @@
   <section class="content">
     <TestBar :questionNumber="currentQuestionNumber" />
     <div id="touch-scroller">
-      <button v-for="(question, indexButton) in questions" :key="indexButton"
-        @click="currentQuestionIndex = indexButton" class="btn" :class="[
+      <button
+        v-for="(question, indexButton) in questions"
+        :key="indexButton"
+        @click="currentQuestionIndex = indexButton"
+        class="btn"
+        :class="[
           { markedButton: markedButtons[indexButton] },
+          { completedButton: completedButtons[indexButton] },
           { currentQuestionButton: currentQuestionIndex === indexButton },
-        ]">
+        ]"
+      >
         {{ indexButton + 1 }}
       </button>
     </div>
@@ -16,9 +22,14 @@
         <input type="button" class="btn" value="Отметить" @click="markButton" />
       </div>
       <input type="button" class="btn" value="Начать заново" @click="newTest" />
-      <input type="button" class="btn" value="Завершить тест" @click="completeTest" />
+      <input
+        type="button"
+        class="btn"
+        value="Завершить тест"
+        @click="completeTest"
+      />
     </div>
-    <TestQuestion :question="currentQuestion" />
+    <TestQuestion :question="currentQuestion" @nextQuestion="nextQuestion" />
   </section>
 </template>
 
@@ -34,6 +45,7 @@ export default {
       questions: [],
       currentQuestionIndex: 0,
       markedButtons: new Array(20).fill(false),
+      completedButtons: new Array(20).fill(false),
     };
   },
   created() {
@@ -75,6 +87,10 @@ export default {
         localStorage.setItem("date", new Date().toLocaleDateString("en-GB"));
         this.$router.push("/result");
       }
+    },
+    nextQuestion() {
+      this.completedButtons[this.currentQuestionIndex] = true;
+      this.currentQuestionIndex = this.currentQuestionIndex + 1;
     },
     newTest() {
       localStorage.removeItem("userResponses");
@@ -134,12 +150,16 @@ p {
   border-color: #a52a2a;
 }
 
-.currentQuestionButton {
-  background-color: #3b82f6;
-  color:white;
+.completedButton {
+  background-color: rgba(116, 36, 215, 0.5);
 }
 
-@media(hover) {
+.currentQuestionButton {
+  background-color: #3b82f6;
+  color: white;
+}
+
+@media (hover) {
   .btn:hover {
     border-color: rgb(117, 36, 215);
   }
@@ -147,7 +167,7 @@ p {
   .currentQuestionButton:hover {
     border-color: rgb(117, 36, 215);
     background-color: #3b82f6;
-    color:white;
+    color: white;
   }
 }
 </style>

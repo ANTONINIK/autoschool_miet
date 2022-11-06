@@ -65,6 +65,9 @@ export default {
       ) {
         userResponses.push(userResponse);
         this.selectedAnswers[userResponse.indexAnswer] = true;
+        setTimeout(() => {
+          this.$emit("nextQuestion");
+        }, 500);
       }
       localStorage.setItem("userResponses", JSON.stringify(userResponses));
     },
