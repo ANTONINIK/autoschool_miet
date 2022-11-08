@@ -69,6 +69,7 @@ export default {
             this.$swal.fire({
               icon: "success",
               title: "Регистрация завершена",
+              confirmButtonColor: "#7524D7",
               showConfirmButton: false,
               timer: 1300,
             });

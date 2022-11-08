@@ -21,14 +21,13 @@
               required
               v-model="password"
             />
-
-            <div class="remember">
-              <label for="RememberMe" class="">Запомнить меня</label>
-              <input id="RememberMe" type="checkbox" class="ms-2" />
-            </div>
-
             <div class="button-wrapper">
               <button type="submit" class="">Войти</button>
+            </div>
+            <div class="button-wrapper">
+              <button type="submit" class="button-color">
+                Создать аккаунт
+              </button>
             </div>
           </form>
         </div>
@@ -69,6 +68,7 @@ export default {
               icon: "error",
               title: "Ошибка!",
               text: "Неверный логин или пароль!",
+              confirmButtonColor: "#7524D7",
             });
           }
         });
@@ -80,6 +80,8 @@ export default {
 <style scoped>
 section {
   height: 100vh;
+  padding: 5rem 1rem;
+  color: white;
 }
 
 .img-wrapper {
@@ -109,11 +111,6 @@ input {
   border-radius: 8px;
 }
 
-section {
-  padding: 5rem 1rem;
-  color: white;
-}
-
 .form-center {
   margin-left: auto;
   margin-right: auto;
@@ -131,8 +128,13 @@ button {
   will-change: background-color;
 }
 
+.button-color {
+  background: rgb(34, 34, 34);
+}
+
 .button-wrapper {
   text-align: center;
+  padding-bottom: 20px;
 }
 
 @media (hover) {

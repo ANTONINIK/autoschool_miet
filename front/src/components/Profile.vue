@@ -1,52 +1,54 @@
 <template>
   <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row"> 
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-              <img style="border-radius: 20px;" src="../assets/UsersImage/photo.jpg">
-              <h1><span class="fs-3">{{ user.nickname }}</span></h1>
-              <span class="fs-5 text-black-50">{{ user.email }}</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div v-if="user">
-    <div class="container">
-      <div id="about_user">
-        <div class="flex items-center justify-center pt-5 flex-col">
-        </div>
-      </div>
-      <div class="user-stats" v-if="user.results.length > 0">
-        <h1 align="center">
-          Статистика прохождения тестов
-        </h1>
-        <div
-          class="questions-progress-wrapper"
-          v-for="(userResult, index) in user.results"
-          :key="index"
-        >
-          <div class="remaining-time">
-            <p>Дата: {{ userResult.date }}</p>
-            <p style="margin-left: 20px">Время прохождения:</p>
-            <div class="time-counter">{{ userResult.timeLeft }}</div>
-          </div>
-          <div class="answered">
-            <p>Количество верных ответов:</p>
-            <div class="counter">{{ userResult.score }} из 20</div>
-          </div>
-          <!-- <input
-            type="button"
-            class="btn"
-            value="показать"
-            @click="watchResult(userResult)"
-          /> -->
-          <button class="button" style="vertical-align:middle" @click="watchResult(userResult)"><span>показать</span></button>
+    <div class="row">
+      <div class="col-md-3 border-right">
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          <img
+            style="border-radius: 20px"
+            src="../assets/UsersImage/photo.jpg"
+          />
+          <h1>
+            <span class="fs-3">{{ user.nickname }}</span>
+          </h1>
+          <span class="fs-5 text-black-50">{{ user.email }}</span>
         </div>
       </div>
-
+      <div class="col-md-5 border-right">
+        <div v-if="user">
+          <div class="container">
+            <div id="about_user">
+              <div class="flex items-center justify-center pt-5 flex-col"></div>
+            </div>
+            <div class="user-stats" v-if="user.results.length > 0">
+              <h1 align="center">Статистика прохождения тестов</h1>
+              <div
+                class="questions-progress-wrapper scale"
+                v-for="(userResult, index) in user.results"
+                :key="index"
+              >
+                <div class="remaining-time">
+                  <p>Дата: {{ userResult.date }}</p>
+                  <p style="margin-left: 20px">Время прохождения:</p>
+                  <div class="time-counter">{{ userResult.timeLeft }}</div>
+                </div>
+                <div class="answered">
+                  <p>Количество верных ответов:</p>
+                  <div class="counter">{{ userResult.score }} из 20</div>
+                </div>
+                <button
+                  class="button"
+                  style="vertical-align: middle"
+                  @click="watchResult(userResult)"
+                >
+                  <span>показать</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-        </div>
-    </div>
-</div>
 </template>
 
 <script>
@@ -136,24 +138,12 @@ export default {
   margin: 5px 20px;
 }
 
-/* .btn {
-  border-color: rgb(218, 44, 44) rgb(209, 209, 209) rgb(186, 186, 186);
-  border-style: solid;
-  border-width: 2px;
-  padding: 1px 7px 2px;
-  text-rendering: auto;
-  color: initial;
-  display: inline-block;
-  text-align: start;
-  margin: 5px;
-  font: 400 11px system-ui;
-} */
 .button {
   display: inline-block;
   border-radius: 10px;
   background-color: rgb(59 130 246 / 500);
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   font-size: 16px;
   padding: 10px;
@@ -171,7 +161,7 @@ export default {
 }
 
 .button span:after {
-  content: '\00bb';
+  content: "\00bb";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -186,5 +176,13 @@ export default {
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.scale {
+  transition: 0.3s;
+}
+
+.scale:hover {
+  transform: scale(1.015);
 }
 </style>

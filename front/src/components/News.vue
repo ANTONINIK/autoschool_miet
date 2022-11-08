@@ -3,14 +3,14 @@
     <div class="header text-center">
       <div class="opacity-black">
         <div class="container">
-          <h1>Новости</h1>
+          <h1>Для доступа к тестам необходима регистрация на сайте</h1>
         </div>
       </div>
     </div>
     <div class="about text-center">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-10 col-lg-8" style="margin:auto">
+          <div class="col-12 col-md-10 col-lg-8" style="margin: auto">
             <h2>Закон и ПДД</h2>
             <p>{{ new Date().toLocaleDateString("en-GB") }}</p>
           </div>
@@ -20,7 +20,7 @@
     <div class="news pt-10 pb-10">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-lg-10" style="margin:auto;">
+          <div class="col-12 col-lg-10" style="margin: auto">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -41,7 +41,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-10" style="margin:auto;">
+          <div class="col-12 col-lg-10" style="margin: auto">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -61,7 +61,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-10" style="margin:auto;">
+          <div class="col-12 col-lg-10" style="margin: auto">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -82,7 +82,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-10" style="margin:auto;">
+          <div class="col-12 col-lg-10" style="margin: auto">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -103,7 +103,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-10" style="margin:auto;">
+          <div class="col-12 col-lg-10" style="margin: auto">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -123,7 +123,7 @@
               </div>
             </div>
           </div>
-          <div class="col-12 col-lg-10" style="margin:auto;">
+          <div class="col-12 col-lg-10" style="margin: auto">
             <div class="content-box">
               <div class="row">
                 <div class="col-12 col-md-6 col-lg-8">
@@ -154,8 +154,7 @@ export default {
 </script>
 
 <style scoped>
-
-.container{
+.container {
   padding: 3rem 1rem;
 }
 .header {

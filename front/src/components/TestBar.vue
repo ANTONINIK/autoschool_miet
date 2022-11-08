@@ -2,11 +2,11 @@
   <div class="questions-progress">
     <div class="questions-progress-wrapper">
       <div class="test-title">
-        <p>Тест для категории B</p>
+        <p>{{ title }}</p>
       </div>
       <div class="answered">
         <p>Количество вопросов:</p>
-        <div class="counter">{{ questionNumber }} из 20</div>
+        <div class="counter">{{ questionNumber }} из {{ testLength }}</div>
         <div class="remaining-time">
           <p>Осталось времени:</p>
           <timer />
@@ -24,6 +24,14 @@ export default {
   props: {
     questionNumber: {
       type: Number,
+      required: true,
+    },
+    testLength: {
+      type: Number,
+      required: true,
+    },
+    title: {
+      type: String,
       required: true,
     },
   },

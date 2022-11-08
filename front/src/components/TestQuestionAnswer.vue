@@ -2,7 +2,7 @@
   <div
     @mouseover="active = true"
     @mouseleave="active = false"
-    @click.once="checkAnswer()"
+    @click="checkAnswer()"
     :class="{ active: active, selected: selected }"
     class="answer"
   >

@@ -1,6 +1,10 @@
 <template>
   <section class="content">
-    <TestBar :questionNumber="currentQuestionNumber" />
+    <TestBar
+      :questionNumber="currentQuestionNumber"
+      :testLength="questions.length"
+      :title="title"
+    />
     <div id="touch-scroller">
       <button
         v-for="(question, indexButton) in questions"
@@ -42,6 +46,7 @@ export default {
   name: "Test",
   data() {
     return {
+      title: "Тест для категории B",
       questions: [],
       currentQuestionIndex: 0,
       markedButtons: new Array(20).fill(false),
@@ -51,20 +56,28 @@ export default {
   created() {
     localStorage.removeItem("userResponses");
     if (localStorage.getItem("token") == null) {
-      this.$router.push("/");
+      this.$router.push("/login");
     }
-    const numbersQuestions = new Array(questionsData.length)
-      .fill(0)
-      .map((item, i) => i);
-    const result = [];
-    while (result.length < 20) {
-      let index = Math.floor(Math.random() * numbersQuestions.length);
-      result.push(questionsData[numbersQuestions[index]]);
-      if (index > -1) {
-        numbersQuestions.splice(index, 1);
+    let topic = JSON.parse(localStorage.getItem("topic"));
+    if (topic) {
+      this.questions = topic.questions;
+      this.title = topic.name;
+      document.title = this.title;
+      localStorage.removeItem("topic");
+    } else {
+      const numbersQuestions = new Array(questionsData[0].questions.length)
+        .fill(0)
+        .map((item, i) => i);
+      const result = [];
+      while (result.length < 20) {
+        let index = Math.floor(Math.random() * numbersQuestions.length);
+        result.push(questionsData[0].questions[numbersQuestions[index]]);
+        if (index > -1) {
+          numbersQuestions.splice(index, 1);
+        }
       }
+      this.questions = result;
     }
-    this.questions = result;
   },
   components: { TestBar, TestQuestion },
   computed: {
@@ -78,7 +91,7 @@ export default {
   methods: {
     completeTest() {
       const userResponses = JSON.parse(localStorage.getItem("userResponses"));
-      if (userResponses.length > 0) {
+      if (userResponses && userResponses.length > 0) {
         let score = 0;
         userResponses.forEach((userResponse) => {
           if (userResponse.correct) score++;
@@ -86,15 +99,35 @@ export default {
         localStorage.setItem("score", score);
         localStorage.setItem("date", new Date().toLocaleDateString("en-GB"));
         this.$router.push("/result");
+      } else {
+        this.$swal.fire({
+          icon: "warning",
+          title: "Предупреждение!",
+          text: "Для завершения теста нужно ответить на все вопросы.",
+          confirmButtonColor: "#7524D7",
+        });
       }
     },
     nextQuestion() {
       this.completedButtons[this.currentQuestionIndex] = true;
-      this.currentQuestionIndex = this.currentQuestionIndex + 1;
+      if (this.currentQuestionIndex < this.questions.length - 1)
+        this.currentQuestionIndex = this.currentQuestionIndex + 1;
     },
     newTest() {
-      localStorage.removeItem("userResponses");
-      this.$router.go("/");
+      this.$swal
+        .fire({
+          title: "Вы уверены?",
+          text: "Вы хотите пройти тест с начала",
+          icon: "warning",
+          confirmButtonColor: "#7524D7",
+          confirmButtonText: "Да, начнем сначала!",
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            localStorage.removeItem("userResponses");
+            this.$router.go("/");
+          }
+        });
     },
     markButton() {
       this.markedButtons[this.currentQuestionIndex] =
@@ -110,7 +143,7 @@ p {
 }
 
 .content {
-  height: 100vh;
+  height: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,15 +168,16 @@ p {
 
 .btn {
   border-color: #3b82f6;
+  min-width: 25px;
   border-style: solid;
   border-width: 2px;
   padding: 1px 7px 2px;
   text-rendering: auto;
   color: initial;
   display: inline-block;
-  text-align: start;
+  text-align: center;
   margin: 5px;
-  font: 400 11px system-ui;
+  font-size: 13px;
 }
 
 .markedButton {

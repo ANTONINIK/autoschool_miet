@@ -53,22 +53,24 @@ export default {
   },
   methods: {
     userResponse(userResponse) {
+      this.selectedAnswers.fill(false);
       userResponse.indexQuestion = this.question.id;
       let userResponses = [];
       if (localStorage.getItem("userResponses")) {
         userResponses = JSON.parse(localStorage.getItem("userResponses"));
       }
-      if (
-        !userResponses.find(function (element) {
-          return element.indexQuestion === userResponse.indexQuestion;
-        })
-      ) {
+      let result = userResponses.findIndex(function (element) {
+        return element.indexQuestion === userResponse.indexQuestion;
+      });
+      if (result === -1) {
         userResponses.push(userResponse);
-        this.selectedAnswers[userResponse.indexAnswer] = true;
         setTimeout(() => {
           this.$emit("nextQuestion");
-        }, 500);
+        }, 300);
+      } else {
+        userResponses[result] = userResponse;
       }
+      this.selectedAnswers[userResponse.indexAnswer] = true;
       localStorage.setItem("userResponses", JSON.stringify(userResponses));
     },
     initSelectedAnswers() {
