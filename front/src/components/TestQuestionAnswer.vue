@@ -2,7 +2,7 @@
   <div
     @mouseover="active = true"
     @mouseleave="active = false"
-    @click.once="checkAnswer()"
+    @click="checkAnswer()"
     :class="{ active: active, selected: selected }"
     class="answer"
   >
@@ -42,8 +42,8 @@ export default {
   methods: {
     checkAnswer() {
       const userResponse = {
-        indexAnswer: this.index,
         correct: null,
+        indexAnswer: this.index,
       };
       if (this.index === this.rightIndex) userResponse.correct = true;
       else userResponse.correct = false;
@@ -60,6 +60,7 @@ export default {
   border-bottom: 1px solid rgb(0, 0, 0, 0.25);
   background: #ffffff;
   cursor: pointer;
+  align-items: center;
 }
 
 .answer-letter {

@@ -1,7 +1,7 @@
 <template>
-  <div class="the-footer">
+  <div class="footer">
     <div class="text-wrapper">
-      <p>Copyright © 2007-2022</p>
+      <p>WEB - ПРОГРАММА «ЭКЗАМЕН ПДД». Все права защищены 2022</p>
     </div>
   </div>
 </template>
@@ -13,17 +13,18 @@ export default {
 </script>
 
 <style>
-.the-footer {
+.footer {
   display: flex;
   height: 80px;
   width: 100%;
-  background-color: #222222;
-  line-height: 1.3;
+  background-color: #3a3a3a;
+  line-height: 1;
 }
 
 .text-wrapper {
   color: white;
   justify-items: center;
   margin: auto;
+  padding: 20px;
 }
 </style>

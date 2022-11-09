@@ -1,5 +1,5 @@
 <template>
-  <div class="test-container">
+  <div class="content">
     <div class="image-frame" v-if="question.image === ''">
       <div class="question-text">
         <p>{{ question.textProblem }}</p>
@@ -14,7 +14,7 @@
     <div
       class="answers-container"
       v-for="(answer, index) in question.answers"
-      :key="answer"
+      :key="index"
     >
       <TestQuestionAnswer
         :answer="answer"
@@ -53,30 +53,38 @@ export default {
   },
   methods: {
     userResponse(userResponse) {
-      userResponse.indexQuestion = this.question.id;
       let userResponses = [];
+      this.selectedAnswers.fill(false);
+      userResponse.indexQuestion = this.question.id;
+      userResponse.indexTopic = this.question.topicId - 1;
       if (localStorage.getItem("userResponses")) {
         userResponses = JSON.parse(localStorage.getItem("userResponses"));
+        const result = userResponses.findIndex(function (uR) {
+          return (
+            uR.indexQuestion === userResponse.indexQuestion &&
+            uR.indexTopic === userResponse.indexTopic
+          );
+        });
+        if (result !== -1) {
+          userResponses[result] = userResponse;
+        }
       }
-      if (
-        !userResponses.find(function (element) {
-          return element.indexQuestion === userResponse.indexQuestion;
-        })
-      ) {
-        userResponses.push(userResponse);
-        this.selectedAnswers[userResponse.indexAnswer] = true;
-        setTimeout(() => {
-          this.$emit("nextQuestion");
-        }, 500);
-      }
+      userResponses.push(userResponse);
+      this.selectedAnswers[userResponse.indexAnswer] = true;
       localStorage.setItem("userResponses", JSON.stringify(userResponses));
+      setTimeout(() => {
+        this.$emit("nextQuestion");
+      }, 300);
     },
     initSelectedAnswers() {
       this.selectedAnswers.fill(false);
       const userResponses = JSON.parse(localStorage.getItem("userResponses"));
       if (userResponses) {
-        const ob = userResponses.find((userResponse) => {
-          return userResponse.indexQuestion === this.question.id;
+        const ob = userResponses.find((uR) => {
+          return (
+            uR.indexQuestion === this.question.id &&
+            uR.indexTopic === this.question.indexTopic
+          );
         });
         if (ob) this.selectedAnswers[ob.indexAnswer] = true;
       }
@@ -91,12 +99,12 @@ export default {
 </script>
 
 <style scoped>
-.test-container {
-  width: 800px;
+.content {
   display: flex;
   flex-direction: column;
-  padding: 20px 20px;
+  padding: 10px 0px 10px 0px;
   font-weight: 400;
+  width: 100%;
 }
 
 .question-text {

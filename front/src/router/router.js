@@ -5,6 +5,7 @@ import Login from "../components/Login.vue";
 import Register from "../components/Register.vue";
 import Profile from "../components/Profile.vue";
 import Result from "../components/Result.vue";
+import TestsByTopic from "../components/TestsByTopic.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -14,7 +15,7 @@ const routes = [
   },
 
   {
-    path: "/test",
+    path: "/test/:topic?",
     component: Test,
   },
 
@@ -41,6 +42,11 @@ const routes = [
   {
     path: "/result",
     component: Result,
+  },
+
+  {
+    path: "/testsbytopic",
+    component: TestsByTopic,
   },
 ];
 
