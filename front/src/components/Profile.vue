@@ -1,5 +1,5 @@
 <template>
-  <div class="container rounded bg-white mt-5 mb-5">
+  <div class="container rounded bg-white mt-5 mb-5" v-if="user">
     <div class="row">
       <div class="col-md-3 border-right">
         <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="answered">
                   <p>Количество верных ответов:</p>
-                  <div class="counter">{{ userResult.score }} из 20</div>
+                  <div class="counter">{{ userResult.score }} из {{userResult.testLength}}</div>
                 </div>
                 <button
                   class="button"
@@ -57,27 +57,26 @@ import { mapGetters } from "vuex";
 export default {
   name: "Profile",
   async created() {
-    if (localStorage.getItem("token") == null) this.$router.push("login");
-    await axios
-      .get("user", {
-        headers: {
-          authorization: localStorage.getItem("token"),
-        },
-      })
-      .then((response) => {
-        this.$store.dispatch("user", response.data);
-      });
+    if (localStorage.getItem("token") === null) {
+      this.$router.push("/login");
+    } else {
+      await axios
+        .get("user", {
+          headers: {
+            authorization: localStorage.getItem("token"),
+          },
+        })
+        .then((response) => {
+          this.$store.dispatch("user", response.data);
+        });
+    }
   },
   computed: {
     ...mapGetters(["user"]),
   },
   methods: {
     watchResult(userResult) {
-      localStorage.setItem("score", userResult.score);
-      localStorage.setItem(
-        "userResponses",
-        JSON.stringify(userResult.userResponse)
-      );
+      localStorage.setItem("result", JSON.stringify(userResult));
       this.$router.push("/result");
     },
   },
@@ -86,6 +85,7 @@ export default {
 
 <style scoped>
 .container {
+  min-height: 750px;
   display: inline-flex;
 }
 

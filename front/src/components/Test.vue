@@ -1,40 +1,59 @@
 <template>
-  <section class="content">
-    <TestBar
-      :questionNumber="currentQuestionNumber"
-      :testLength="questions.length"
-      :title="title"
-    />
-    <div id="touch-scroller">
-      <button
-        v-for="(question, indexButton) in questions"
-        :key="indexButton"
-        @click="currentQuestionIndex = indexButton"
-        class="btn"
-        :class="[
-          { markedButton: markedButtons[indexButton] },
-          { completedButton: completedButtons[indexButton] },
-          { currentQuestionButton: currentQuestionIndex === indexButton },
-        ]"
-      >
-        {{ indexButton + 1 }}
-      </button>
-    </div>
-    <div class="buttons-container">
-      <div class="mark-question-container">
-        <p>Вопрос №{{ currentQuestionNumber }}</p>
-        <input type="button" class="btn" value="Отметить" @click="markButton" />
+  <div class="test">
+    <div class="test-wrapper">
+      <div class="test-wrapper__info">
+        <TestBar
+          :questionNumber="currentQuestionNumber"
+          :testLength="questions.length"
+          :title="title"
+        />
+        <div class="test-wrapper__scroll">
+          <button
+            v-for="(question, indexButton) in questions"
+            :key="indexButton"
+            @click="currentQuestionIndex = indexButton"
+            class="btn"
+            :class="[
+              { markedButton: markedButtons[indexButton] },
+              { completedButton: completedButtons[indexButton] },
+              { currentQuestionButton: currentQuestionIndex === indexButton },
+            ]"
+          >
+            {{ indexButton + 1 }}
+          </button>
+        </div>
+        <div class="buttons-container">
+          <p>Вопрос №{{ currentQuestionNumber }}</p>
+          <div class="mark-question-container">
+            <input
+              type="button"
+              class="btn"
+              value="Отметить"
+              @click="markButton"
+            />
+          </div>
+          <input
+            type="button"
+            class="btn"
+            value="Начать заново"
+            @click="newTest"
+          />
+          <input
+            type="button"
+            class="btn"
+            value="Завершить тест"
+            @click="completeTest"
+          />
+        </div>
       </div>
-      <input type="button" class="btn" value="Начать заново" @click="newTest" />
-      <input
-        type="button"
-        class="btn"
-        value="Завершить тест"
-        @click="completeTest"
-      />
+      <div class="test-wrapper__content">
+        <TestQuestion
+          :question="currentQuestion"
+          @nextQuestion="nextQuestion"
+        />
+      </div>
     </div>
-    <TestQuestion :question="currentQuestion" @nextQuestion="nextQuestion" />
-  </section>
+  </div>
 </template>
 
 <script>
@@ -60,23 +79,35 @@ export default {
     }
     let topic = JSON.parse(localStorage.getItem("topic"));
     if (topic) {
+      topic.questions.forEach((question) => {
+        question.topicId = topic.topicId;
+      });
       this.questions = topic.questions;
       this.title = topic.name;
       document.title = this.title;
       localStorage.removeItem("topic");
     } else {
-      const numbersQuestions = new Array(questionsData[0].questions.length)
+      const numbersTopics = new Array(questionsData.length)
         .fill(0)
         .map((item, i) => i);
-      const result = [];
-      while (result.length < 20) {
-        let index = Math.floor(Math.random() * numbersQuestions.length);
-        result.push(questionsData[0].questions[numbersQuestions[index]]);
-        if (index > -1) {
-          numbersQuestions.splice(index, 1);
+      const topics = [];
+      while (topics.length < 20) {
+        const indexTopic = Math.floor(Math.random() * numbersTopics.length);
+        topics.push(questionsData[numbersTopics[indexTopic]]);
+        if (indexTopic > -1) {
+          numbersTopics.splice(indexTopic, 1);
         }
       }
-      this.questions = result;
+      const questionsPull = [];
+      topics.forEach((topic) => {
+        const indexQuestion = Math.floor(
+          Math.random() * topic.questions.length
+        );
+        const question = topic.questions[indexQuestion];
+        question.topicId = topic.topicId;
+        questionsPull.push(question);
+      });
+      this.questions = questionsPull;
     }
   },
   components: { TestBar, TestQuestion },
@@ -90,14 +121,13 @@ export default {
   },
   methods: {
     completeTest() {
-      const userResponses = JSON.parse(localStorage.getItem("userResponses"));
-      if (userResponses && userResponses.length > 0) {
-        let score = 0;
-        userResponses.forEach((userResponse) => {
-          if (userResponse.correct) score++;
-        });
-        localStorage.setItem("score", score);
-        localStorage.setItem("date", new Date().toLocaleDateString("en-GB"));
+      const result = {
+        userResponses: JSON.parse(localStorage.getItem("userResponses")),
+        testLength: this.questions.length,
+        date: new Date().toLocaleDateString("en-GB"),
+      };
+      if (result.userResponses.length > 0) {
+        localStorage.setItem("result", JSON.stringify(result));
         this.$router.push("/result");
       } else {
         this.$swal.fire({
@@ -142,18 +172,44 @@ p {
   margin-bottom: 0px;
 }
 
-.content {
-  height: 900px;
+.test {
+  padding: 5rem 1rem 10rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.test-wrapper {
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-weight: 400;
-  padding: 5rem 1rem;
+}
+
+.test-wrapper__info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.test-wrapper__content {
+  width: 100%;
 }
 
 .buttons-container {
   display: flex;
-  justify-content: end;
+  justify-content: center;
+}
+
+@media screen and (max-width: 600px) {
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 
 .mark-question-container {
@@ -176,7 +232,7 @@ p {
   color: initial;
   display: inline-block;
   text-align: center;
-  margin: 5px;
+  margin: 4px;
   font-size: 13px;
 }
 

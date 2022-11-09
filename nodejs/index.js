@@ -71,20 +71,13 @@ app.post("/login", (request, response) => {
 
 app.post("/addResult", (request, response) => {
   fs.readFile("./users.json", "utf8", (err, data) => {
-    console.log(request.body);
     if (err) {
       console.log(`Ошибка чтения файла с диска: ${err}`);
     } else {
       const databases = JSON.parse(data);
-      const result = {
-        score: request.body.score,
-        timeLeft: request.body.timeLeft,
-        userResponse: request.body.userResponse,
-        date: request.body.date
-      }
-      databases
-        .find((user) => user.id === request.body.token)
-        .results.push(result);
+      console.log(request.body.result);
+      const result = request.body.result;
+      databases.find((user) => user.id === result.token).results.push(result);
       fs.writeFile(
         "./users.json",
         JSON.stringify(databases, null, 4),

@@ -1,5 +1,5 @@
 <template>
-  <section id="navigation" class="container">
+  <header class="header">
     <nav
       class="navig"
       :class="{ showContentFalse: !showContent }"
@@ -62,19 +62,14 @@
           <a class="menu-link">Выйти</a>
         </li>
       </ul>
-      <img
-        src="../assets/UsersImage/icon.png"
-        alt=""
-        class="logo"
-        :class="{ hideIcon: hideIcon }"
-      />
+      <img src="../assets/UsersImage/icon.png" alt="" class="logo" />
     </nav>
     <div class="burger" @click="burgerClick">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
     </div>
-  </section>
+  </header>
 </template>
 
 <script>
@@ -85,7 +80,6 @@ export default {
     return {
       isActive: true,
       showContent: false,
-      hideIcon: false,
       isSelected: new Array(7).fill(false),
     };
   },
@@ -93,9 +87,6 @@ export default {
     setTimeout(() => {
       this.showContent = true;
     }, "400");
-    setTimeout(() => {
-      this.hideIcon = true;
-    }, "2400");
   },
   methods: {
     logout() {
@@ -166,13 +157,15 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  max-width: 100%;
+.header {
+  min-width: 100%;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
   margin: 0;
-  color: #fff;
   background-color: rgb(51, 112, 212);
+  z-index: 1;
 }
 
 .navig {
@@ -216,11 +209,6 @@ export default {
   display: flex;
 }
 
-.navigation {
-  display: flex;
-  position: relative;
-}
-
 .burger {
   display: flex;
   flex-direction: column;
@@ -244,17 +232,13 @@ export default {
   transform: translateX(-94%);
 }
 
-.hideIcon {
-  transform: translateX(1000px);
-}
-
 @media (hover) {
   .menu .menu-item:hover {
     border-color: #fff;
   }
 }
 
-@media screen and (max-width: 620px) {
+@media only screen and (max-width: 1050px) {
   .menu {
     flex-direction: column;
     opacity: 0;
@@ -270,15 +254,5 @@ export default {
     opacity: 1;
     visibility: visible;
   }
-}
-
-section {
-  position: fixed;
-  top: 0;
-  z-index: 900;
-}
-img {
-  margin-left: 5px;
-  transition: all 3s ease;
 }
 </style>
