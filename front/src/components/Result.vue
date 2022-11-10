@@ -113,7 +113,7 @@ export default {
       result.token = localStorage.getItem("token");
       this.showUserAnswer.fill(false);
 
-      if (localStorage.removeItem("timeLeft")) {
+      if (localStorage.getItem("timeLeft")) {
         await axios.post("addResult", {
           result: result,
         });
