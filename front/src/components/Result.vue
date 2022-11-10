@@ -113,9 +113,11 @@ export default {
       result.token = localStorage.getItem("token");
       this.showUserAnswer.fill(false);
 
-      await axios.post("addResult", {
-        result: result,
-      });
+      if (localStorage.removeItem("timeLeft")) {
+        await axios.post("addResult", {
+          result: result,
+        });
+      }
       localStorage.removeItem("result");
       localStorage.removeItem("timeLeft");
     } else this.$router.push("/test");

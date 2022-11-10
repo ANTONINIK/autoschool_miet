@@ -56,7 +56,7 @@ export default {
       let userResponses = [];
       this.selectedAnswers.fill(false);
       userResponse.indexQuestion = this.question.id;
-      userResponse.indexTopic = this.question.topicId - 1;
+      userResponse.indexTopic = this.question.topicId;
       if (localStorage.getItem("userResponses")) {
         userResponses = JSON.parse(localStorage.getItem("userResponses"));
         const result = userResponses.findIndex(function (uR) {
@@ -80,10 +80,10 @@ export default {
       this.selectedAnswers.fill(false);
       const userResponses = JSON.parse(localStorage.getItem("userResponses"));
       if (userResponses) {
-        const ob = userResponses.find((uR) => {
+        let ob = userResponses.find((uR) => {
           return (
             uR.indexQuestion === this.question.id &&
-            uR.indexTopic === this.question.indexTopic
+            uR.indexTopic === this.question.topicId
           );
         });
         if (ob) this.selectedAnswers[ob.indexAnswer] = true;
