@@ -80,7 +80,7 @@ export default {
     let topic = JSON.parse(localStorage.getItem("topic"));
     if (topic) {
       topic.questions.forEach((question) => {
-        question.topicId = topic.topicId - 1;
+        question.topicId = topic.topicId;
       });
       this.questions = topic.questions;
       this.title = topic.name;

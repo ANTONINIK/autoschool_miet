@@ -228,9 +228,9 @@ export default {
   visibility: visible !important;
 }
 
-.showContentFalse {
+/* .showContentFalse {
   transform: translateX(-94%);
-}
+} */
 
 @media (hover) {
   .menu .menu-item:hover {
