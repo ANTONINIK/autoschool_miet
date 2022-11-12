@@ -158,6 +158,7 @@ export default {
 
 <style scoped>
 .header {
+  height: 3.5rem;
   min-width: 100%;
   display: flex;
   align-items: center;
@@ -214,6 +215,7 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   height: 26px;
+  padding-left: 1rem;
   opacity: 0;
   visibility: hidden;
 }
@@ -239,7 +241,7 @@ export default {
 }
 
 @media only screen and (max-width: 1050px) {
-  .menu {
+  .menu, .logo {
     flex-direction: column;
     opacity: 0;
     visibility: hidden;

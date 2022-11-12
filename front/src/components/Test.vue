@@ -168,19 +168,21 @@ export default {
 </script>
 <style scoped>
 p {
+  display: flex;
+  align-items: center;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
 .test {
-  padding: 5rem 1rem 10rem 1rem;
+  padding: 3.5rem 1rem 10rem 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .test-wrapper {
-  width: 90%;
+  width: 60rem;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -174,7 +174,7 @@ export default {
 }
 
 .header {
-  background: url("../assets/UsersImage/about.jpg");
+  background: url("../assets/UsersImage/about.jpg") no-repeat;
   background-position: center center;
   height: 45vh;
   position: relative;

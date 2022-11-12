@@ -82,10 +82,6 @@ export default {
 </script>
 
 <style scoped>
-section {
-  height: 100vh;
-}
-
 .img-wrapper {
   text-align: center;
 }
