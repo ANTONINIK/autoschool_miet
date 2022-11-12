@@ -142,7 +142,6 @@ export default {
 
 <style scoped>
 .result {
-  min-height: 1000px;
   padding: 5rem 1rem;
 }
 

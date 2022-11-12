@@ -158,7 +158,7 @@ export default {
   padding: 3rem 1rem;
 }
 .header {
-  background: url("../assets/UsersImage/news.jpg");
+  background: url("../assets/UsersImage/news.jpg") no-repeat;
   background-position: center center;
   height: 45vh;
   position: relative;

@@ -1,9 +1,9 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <div class="text-wrapper">
       <p>WEB - ПРОГРАММА «ЭКЗАМЕН ПДД». Все права защищены 2022</p>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>
@@ -15,7 +15,8 @@ export default {
 <style>
 .footer {
   display: flex;
-  height: 80px;
+  margin-top: auto;
+  height: 3.5rem;
   width: 100%;
   background-color: #3a3a3a;
   line-height: 1;

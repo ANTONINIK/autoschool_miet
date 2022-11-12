@@ -32,6 +32,11 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700;900&display=swap");
 .app {
   font-family: "Noto Sans", sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 img {
   max-width: 100%;

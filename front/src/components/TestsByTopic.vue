@@ -25,9 +25,6 @@ export default {
   },
   created() {
     localStorage.removeItem("userResponses");
-    if (localStorage.getItem("token") == null) {
-      this.$router.push("/login");
-    }
   },
   methods: {
     selectTopic(index) {
@@ -40,11 +37,9 @@ export default {
 
 <style scoped>
 .tests-by-topic {
-  padding-top: 4rem;
-  padding-bottom: 3rem;
+  padding: 70px 0;
   display: flex;
   align-items: center;
-  display: flex;
   flex-direction: column;
 }
 

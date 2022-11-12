@@ -1,51 +1,35 @@
 <template>
-  <div class="container rounded bg-white mt-5 mb-5" v-if="user">
-    <div class="row">
-      <div class="col-md-3 border-right">
-        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-          <img
-            style="border-radius: 20px"
-            src="../assets/UsersImage/photo.jpg"
-          />
-          <h1>
-            <span class="fs-3">{{ user.nickname }}</span>
-          </h1>
-          <span class="fs-5 text-black-50">{{ user.email }}</span>
-        </div>
+  <div class="user-profile" v-if="user">
+    <div class="inform">
+      <div class="inform__image">
+        <img src="../assets/UsersImage/photo.jpg" />
       </div>
-      <div class="col-md-5 border-right">
-        <div v-if="user">
-          <div class="container">
-            <div id="about_user">
-              <div class="flex items-center justify-center pt-5 flex-col"></div>
-            </div>
-            <div class="user-stats" v-if="user.results.length > 0">
-              <h1 align="center">Статистика прохождения тестов</h1>
-              <div
-                class="questions-progress-wrapper scale"
-                v-for="(userResult, index) in user.results"
-                :key="index"
-              >
-                <div class="remaining-time">
-                  <p>Дата: {{ userResult.date }}</p>
-                  <p style="margin-left: 20px">Время прохождения:</p>
-                  <div class="time-counter">{{ userResult.timeLeft }}</div>
-                </div>
-                <div class="answered">
-                  <p>Количество верных ответов:</p>
-                  <div class="counter">{{ userResult.score }} из {{userResult.testLength}}</div>
-                </div>
-                <button
-                  class="button"
-                  style="vertical-align: middle"
-                  @click="watchResult(userResult)"
-                >
-                  <span>показать</span>
-                </button>
-              </div>
-            </div>
+      <div class="inform__text">
+        <h2>
+          {{ user.nickname }}
+        </h2>
+        <p>{{ user.email }}</p>
+      </div>
+    </div>
+    <div class="stats" v-if="user && user.results.length > 0">
+      <h4 class="stats__title">Статистика прохождения тестов</h4>
+      <div
+        class="stats__result result-scale"
+        v-for="(userResult, index) in user.results"
+        :key="index"
+      >
+        <p>Дата: {{ userResult.date }}</p>
+        <p>Время прохождения: {{ userResult.timeLeft }}</p>
+        <div class="result__counter">
+          <p>Количество верных ответов:</p>
+          <div class="counter__text">
+            {{ userResult.score }} из
+            {{ userResult.testLength }}
           </div>
         </div>
+        <button class="watch-result-button" @click="watchResult(userResult)">
+          <span>показать</span>
+        </button>
       </div>
     </div>
   </div>
@@ -84,61 +68,81 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  min-height: 750px;
-  display: inline-flex;
+.user-profile {
+  padding: 5.5rem 1rem 10rem 1rem;
+  display: inline;
+}
+
+.inform {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.inform__image {
+  width: 20%;
+  margin-bottom: 1rem;
+}
+
+.inform__text {
+  text-align: center;
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+  border: 3px solid #8f8f8f;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .user-stats {
   padding-top: 20px;
   margin-left: 50px;
   display: flex;
-  flex-direction: column;
 }
 
-.questions-progress-wrapper {
-  width: 1000px;
+.stats__result {
+  max-width: 1500px;
   margin: 16px;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
-.remaining-time {
-  font-weight: 500;
-  margin: 10px 20px;
+p {
+  margin: 0 20px 0 20px;
+}
+
+.result__counter {
   display: flex;
   align-items: center;
 }
 
-.time-counter {
-  font-weight: 500;
-  margin: 10px 20px;
-  display: flex;
-  align-items: center;
-}
-
-.answered {
-  font-weight: 500;
-  margin: 10px 20px;
-  display: flex;
-  align-items: center;
-}
-
-.counter {
-  padding: 10px 10px 10px 18px;
-  width: 100px;
+.counter__text {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 6px;
   font-weight: 900;
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 5px 20px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px;
+  min-width: 80px;
 }
 
-.button {
+.watch-result-button {
   display: inline-block;
   border-radius: 10px;
   background-color: rgb(59 130 246 / 500);
@@ -150,17 +154,17 @@ export default {
   width: 120px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 30px;
+  margin: 10px;
 }
 
-.button span {
+.watch-result-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.button span:after {
+.watch-result-button span:after {
   content: "\00bb";
   position: absolute;
   opacity: 0;
@@ -169,20 +173,35 @@ export default {
   transition: 0.5s;
 }
 
-.button:hover span {
+.watch-result-button:hover span {
   padding-right: 25px;
 }
 
-.button:hover span:after {
+.watch-result-button:hover span:after {
   opacity: 1;
   right: 0;
 }
 
-.scale {
+.result-scale {
   transition: 0.3s;
 }
 
-.scale:hover {
+.result-scale:hover {
   transform: scale(1.015);
+}
+
+@media screen and (max-width: 750px) {
+  .stats__result {
+    padding: 20px;
+    flex-direction: column;
+  }
+  
+  p {
+    margin-bottom: 10px;
+  }
+
+  .result__counter {
+    flex-direction: column;
+  }
 }
 </style>

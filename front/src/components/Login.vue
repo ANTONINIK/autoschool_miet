@@ -25,7 +25,7 @@
               <button type="submit" class="">Войти</button>
             </div>
             <div class="button-wrapper">
-              <button type="submit" class="button-color">
+              <button class="button-color" @click="clickRegister">
                 Создать аккаунт
               </button>
             </div>
@@ -73,13 +73,15 @@ export default {
           }
         });
     },
+    clickRegister() {
+      this.$router.push("/register");
+    },
   },
 };
 </script>
 
 <style scoped>
 section {
-  height: 100vh;
   padding: 5rem 1rem;
   color: white;
 }

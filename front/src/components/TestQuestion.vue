@@ -1,15 +1,15 @@
 <template>
   <div class="content">
     <div class="image-frame" v-if="question.image === ''">
-      <div class="question-text">
-        <p>{{ question.textProblem }}</p>
+      <div class="question-text-wrapper">
+        <div class="question-text">{{ question.textProblem }}</div>
       </div>
     </div>
     <div class="image-frame" v-else>
-      <div class="question-text">
+      <div class="question-text-wrapper">
         <img :src="imgUrl" alt="" />
       </div>
-      <p>{{ question.textProblem }}</p>
+      <div class="question-text">{{ question.textProblem }}</div>
     </div>
     <div
       class="answers-container"
@@ -107,12 +107,20 @@ export default {
   width: 100%;
 }
 
-.question-text {
+.question-text-wrapper {
   height: 250px;
   border: 2px solid rgb(0, 0, 0, 0.25);
+  padding: 10px;
   display: flex;
   align-items: center;
-  padding: 10px;
   justify-content: center;
 }
+
+.question-text {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+
 </style>
