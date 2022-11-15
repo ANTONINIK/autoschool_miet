@@ -59,22 +59,18 @@ export default {
       userResponse.indexTopic = this.question.topicId;
       if (localStorage.getItem("userResponses")) {
         userResponses = JSON.parse(localStorage.getItem("userResponses"));
-        const result = userResponses.findIndex(function (uR) {
-          return (
+        const result = userResponses.findIndex(
+          (uR) =>
             uR.indexQuestion === userResponse.indexQuestion &&
             uR.indexTopic === userResponse.indexTopic
-          );
-        });
+        );
         if (result !== -1) {
           userResponses[result] = userResponse;
-        }
-      }
-      userResponses.push(userResponse);
+        } else userResponses.push(userResponse);
+      } else userResponses.push(userResponse);
       this.selectedAnswers[userResponse.indexAnswer] = true;
       localStorage.setItem("userResponses", JSON.stringify(userResponses));
-      setTimeout(() => {
-        this.$emit("nextQuestion");
-      }, 300);
+      this.$emit("nextQuestion");
     },
     initSelectedAnswers() {
       this.selectedAnswers.fill(false);
@@ -116,11 +112,13 @@ export default {
   justify-content: center;
 }
 
+img {
+  display: block;
+}
+
 .question-text {
   display: flex;
   align-items: center;
   padding: 0.5rem 0;
 }
-
-
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="tests-by-topic">
+  <main class="tests-by-topic">
     <h2>Темы</h2>
     <div class="tests-by-topic__list">
       <div
@@ -11,7 +11,7 @@
         {{ index + 1 }}. {{ topic.name }}
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -23,7 +23,7 @@ export default {
       questionsData,
     };
   },
-  created() {
+  mounted() {
     localStorage.removeItem("userResponses");
   },
   methods: {

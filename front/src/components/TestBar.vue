@@ -97,5 +97,9 @@ p {
     flex-direction: column;
     flex-wrap: wrap;
   }
+
+  .answered, .counter {
+    display: none;
+  }
 }
 </style>

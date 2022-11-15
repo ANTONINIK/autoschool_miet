@@ -14,8 +14,10 @@ export default {
 
 <style>
 .footer {
+  box-sizing: border-box;
   display: flex;
   margin-top: auto;
+  align-items: center;
   height: 3.5rem;
   width: 100%;
   background-color: #3a3a3a;
@@ -26,6 +28,8 @@ export default {
   color: white;
   justify-items: center;
   margin: auto;
+  padding: 15px;
+  font-size: 15px;
   padding: 20px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <main>
     <div class="header text-center">
       <div class="opacity-black">
         <div class="container">
@@ -144,7 +144,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -207,6 +207,7 @@ export default {
 @media (hover) {
   .content-box:hover {
     border: 3px solid rgb(117, 36, 215);
+    transform: scale(1.015);
   }
 }
 </style>

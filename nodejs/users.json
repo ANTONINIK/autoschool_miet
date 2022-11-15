@@ -1,9 +1,9 @@
 [
     {
-        "id": "d6241c443141d140",
+        "id": "b06bf07fe00fc50f",
         "email": "123@123",
         "password": "123",
-        "nickname": "123123",
+        "nickname": "123",
         "results": [
             {
                 "userResponses": [
@@ -12,75 +12,13 @@
                         "indexAnswer": 0,
                         "indexQuestion": 0,
                         "indexTopic": 1
-                    },
-                    {
-                        "correct": false,
-                        "indexAnswer": 1,
-                        "indexQuestion": 1,
-                        "indexTopic": 1
                     }
                 ],
                 "testLength": 5,
-                "date": "11/11/2022",
+                "date": "15/11/2022",
                 "score": 1,
-                "timeLeft": "19:54",
-                "token": "d6241c443141d140"
-            },
-            {
-                "userResponses": [
-                    {
-                        "correct": false,
-                        "indexAnswer": 0,
-                        "indexQuestion": 0,
-                        "indexTopic": 10
-                    },
-                    {
-                        "correct": false,
-                        "indexAnswer": 0,
-                        "indexQuestion": 2,
-                        "indexTopic": 5
-                    },
-                    {
-                        "correct": false,
-                        "indexAnswer": 0,
-                        "indexQuestion": 0,
-                        "indexTopic": 10
-                    },
-                    {
-                        "correct": false,
-                        "indexAnswer": 0,
-                        "indexQuestion": 2,
-                        "indexTopic": 5
-                    }
-                ],
-                "testLength": 20,
-                "date": "11/11/2022",
-                "score": 0,
-                "timeLeft": "19:53",
-                "token": "d6241c443141d140"
-            }
-        ]
-    },
-    {
-        "id": "d5c52782edc3aef1",
-        "email": "1@11",
-        "password": "1",
-        "nickname": "123",
-        "results": [
-            {
-                "userResponses": [
-                    {
-                        "correct": false,
-                        "indexAnswer": 0,
-                        "indexQuestion": 1,
-                        "indexTopic": 2
-                    }
-                ],
-                "testLength": 20,
-                "date": "12/11/2022",
-                "score": 0,
-                "timeLeft": "19:57",
-                "token": "d5c52782edc3aef1"
+                "timeLeft": "19:58",
+                "token": "b06bf07fe00fc50f"
             }
         ]
     }

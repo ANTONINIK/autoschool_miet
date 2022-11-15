@@ -1,5 +1,5 @@
 <template>
-  <div class="result">
+  <main class="result">
     <div class="result__content">
       <h2>Тест завершен</h2>
       <h4>Вы набрали {{ score }} из {{ testLength }}</h4>
@@ -81,7 +81,7 @@
         </li>
       </ol>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -112,7 +112,6 @@ export default {
       result.timeLeft = this.timeLeft;
       result.token = localStorage.getItem("token");
       this.showUserAnswer.fill(false);
-
       if (localStorage.getItem("timeLeft")) {
         await axios.post("addResult", {
           result: result,
@@ -155,6 +154,12 @@ export default {
   border-radius: 10px;
   border: 2px solid rgb(0, 0, 0, 0.25);
   max-width: 80%;
+}
+
+@media only screen and (max-width: 1050px) {
+  .content__list {
+  max-width: 100%;
+  }
 }
 
 .list__question {

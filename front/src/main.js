@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router/router.js";
 import "@/axios";
-import store from "./vuex";
+import store from "@/store/vuex";
 import BootstrapVue3 from "bootstrap-vue-3";
 import resetStyles from './resetStyles.css'
 import "bootstrap/dist/css/bootstrap.css";

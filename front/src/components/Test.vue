@@ -1,5 +1,5 @@
 <template>
-  <div class="test">
+  <main class="test">
     <div class="test-wrapper">
       <div class="test-wrapper__info">
         <TestBar
@@ -53,7 +53,7 @@
         />
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -126,7 +126,7 @@ export default {
         testLength: this.questions.length,
         date: new Date().toLocaleDateString("en-GB"),
       };
-      if (result.userResponses.length > 0) {
+      if (result.userResponses && result.userResponses.length > 0) {
         localStorage.setItem("result", JSON.stringify(result));
         this.$router.push("/result");
       } else {
@@ -208,7 +208,8 @@ p {
 @media screen and (max-width: 600px) {
   .buttons-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
   }
