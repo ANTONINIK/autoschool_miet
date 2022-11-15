@@ -10,6 +10,13 @@
         </h2>
         <p>{{ user.email }}</p>
       </div>
+      <button
+        class="save-result-button"
+        v-if="saveResultActive"
+        @click="savingChanges(index)"
+      >
+        <span>сохранить</span>
+      </button>
     </div>
     <div class="stats" v-if="user && user.results.length > 0">
       <h4 class="stats__title">Статистика прохождения тестов</h4>
@@ -34,9 +41,6 @@
           <span>удалить</span>
         </button>
       </div>
-      <button class="save-result-button" v-if="saveResultActive" @click="savingChanges(index)">
-          <span>сохранить</span>
-        </button>
     </div>
     <div class="crossbars-analysis" v-if="analytics.length">
       <h4 class="crossbars-analysis__title">Анализ ошибок по темам</h4>
@@ -73,6 +77,8 @@ export default {
   mounted() {
     if (localStorage.getItem("token") === null) {
       this.$router.push("/login");
+    } else {
+      this.$store.dispatch("fetchUser", localStorage.getItem("token"));
     }
   },
   computed: {
