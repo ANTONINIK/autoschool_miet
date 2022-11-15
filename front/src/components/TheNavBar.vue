@@ -2,10 +2,9 @@
   <header class="header">
     <nav
       class="navig"
-      :class="{ showContentFalse: !showContent }"
-      v-if="isActive"
+      :class="{ showContentFalse: !showContent, active: isActive }"
     >
-      <ul class="menu mb-0">
+      <ul class="menu mb-0" :class="{ active: isActive }">
         <li
           class="menu-item"
           :class="{ menu_item_active: isSelected[0] }"
@@ -78,7 +77,7 @@ export default {
   name: "TheNavBar",
   data() {
     return {
-      isActive: true,
+      isActive: false,
       showContent: false,
       isSelected: new Array(7).fill(false),
     };
@@ -91,13 +90,14 @@ export default {
   methods: {
     logout() {
       localStorage.removeItem("token");
-      this.$store.dispatch("user", null);
+      this.$store.commit("updateUser", null);
       this.$router.push("/");
     },
     burgerClick() {
       this.isActive = !this.isActive;
     },
     selectMenu(route) {
+      this.burgerClick();
       if (this.$route.path === "/test")
         this.$swal
           .fire({
@@ -241,15 +241,25 @@ export default {
 }
 
 @media only screen and (max-width: 1050px) {
-  .menu, .logo {
+  .menu,
+  .logo {
     flex-direction: column;
+    align-items: center;
     opacity: 0;
     visibility: hidden;
     position: absolute;
+    background-color: rgba(51, 113, 212, .95);
     top: 100%;
-    right: 0;
-    background-color: white;
+    width: 100%;
     color: black;
+  }
+
+  .menu-item {
+    margin: 5px 0 !important;
+  }
+
+  .menu-link {
+    font-size: 20px;
   }
 
   .burger {

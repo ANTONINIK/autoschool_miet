@@ -1,9 +1,7 @@
 <template>
   <div
-    @mouseover="active = true"
-    @mouseleave="active = false"
     @click="checkAnswer()"
-    :class="{ active: active, selected: selected }"
+    :class="{ selected: selected }"
     class="answer"
   >
     <span class="answer-letter">{{ String.fromCharCode(65 + index) }}</span>
@@ -16,11 +14,6 @@
 <script>
 export default {
   name: "TestQuestionAnswer",
-  data() {
-    return {
-      active: false,
-    };
-  },
   props: {
     answer: {
       type: String,
@@ -95,7 +88,7 @@ p {
   color: rgb(0, 0, 0);
 }
 
-.active {
+.answer:hover {
   background: #d3d3d3;
 }
 

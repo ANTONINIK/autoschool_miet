@@ -1,43 +1,29 @@
 <template>
-  <section class="">
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center"
-        >
-          <form @submit.prevent="handleSubmit" class="login-form">
-            <div class="img-wrapper">
-              <img src="..\assets\UsersImage\icon.png" alt="" class="" />
-            </div>
+  <main class="register container">
+    <div class="row">
+      <div
+        class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4 form-center"
+      >
+        <form @submit.prevent="handleSubmit" class="login-form">
+          <div class="img-wrapper">
+            <img src="..\assets\UsersImage\icon.png" alt="" />
+          </div>
 
-            <label for="nickname" class="">Имя</label>
-            <input
-              id="nickname"
-              type="text"
-              class=""
-              required
-              v-model="nickname"
-            />
+          <label for="nickname">Имя</label>
+          <input id="nickname" type="text" required v-model="nickname" />
 
-            <label for="login" class="">Email</label>
-            <input id="login" type="email" class="" required v-model="email" />
+          <label for="login">Email</label>
+          <input id="login" type="email" required v-model="email" />
 
-            <label for="pass" class="">Пароль</label>
-            <input
-              id="pass"
-              type="password"
-              class=""
-              required
-              v-model="password"
-            />
-            <div class="button-wrapper">
-              <button type="submit" class="">Зарегистрироваться</button>
-            </div>
-          </form>
-        </div>
+          <label for="pass">Пароль</label>
+          <input id="pass" type="password" required v-model="password" />
+          <div class="button-wrapper">
+            <button type="submit">Зарегистрироваться</button>
+          </div>
+        </form>
       </div>
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -51,7 +37,7 @@ export default {
       nickname: "",
     };
   },
-  created() {
+  mounted() {
     if (localStorage.getItem("token") !== null) {
       this.$router.push("/");
     }
@@ -82,6 +68,11 @@ export default {
 </script>
 
 <style scoped>
+.register {
+  padding: 5rem 1rem;
+  color: white;
+}
+
 .img-wrapper {
   text-align: center;
 }
@@ -109,11 +100,6 @@ input {
   border-radius: 8px;
 }
 
-section {
-  padding: 5rem 1rem;
-  color: white;
-}
-
 .form-center {
   margin-left: auto;
   margin-right: auto;
@@ -122,8 +108,7 @@ section {
 button {
   color: white;
   background-color: transparent;
-  width: 70%;
-  height: 40px;
+  padding: 10px;
   text-align: center;
   border-radius: 8px;
   border-color: white;

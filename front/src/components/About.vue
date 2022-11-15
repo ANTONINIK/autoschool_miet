@@ -1,6 +1,6 @@
 <template>
-  <section class="text-center">
-    <div class="header">
+  <main class="text-center">
+    <div class="promo">
       <div class="opacity-black">
         <div class="container">
           <h1>LAMAKO</h1>
@@ -155,7 +155,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </main>
 </template>
 
 <script>
@@ -173,7 +173,7 @@ export default {
   padding: 0;
 }
 
-.header {
+.promo {
   background: url("../assets/UsersImage/about.jpg") no-repeat;
   background-position: center center;
   height: 45vh;
@@ -236,6 +236,10 @@ export default {
 @media (hover) {
   .content-box:hover {
     border-color: rgb(117, 36, 215);
+    transform: scale(1.015);
+  }
+  .workers:hover {
+    transform: scale(1.015);
   }
 }
 

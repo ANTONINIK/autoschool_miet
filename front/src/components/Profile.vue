@@ -1,5 +1,5 @@
 <template>
-  <div class="user-profile" v-if="user">
+  <main class="user-profile" v-if="user">
     <div class="inform">
       <div class="inform__image">
         <img src="../assets/UsersImage/photo.jpg" />
@@ -30,38 +30,65 @@
         <button class="watch-result-button" @click="watchResult(userResult)">
           <span>показать</span>
         </button>
+        <button class="delete-result-button" @click="deleteResult(index)">
+          <span>удалить</span>
+        </button>
+      </div>
+      <button class="save-result-button" v-if="saveResultActive" @click="savingChanges(index)">
+          <span>сохранить</span>
+        </button>
+    </div>
+    <div class="crossbars-analysis" v-if="analytics.length">
+      <h4 class="crossbars-analysis__title">Анализ ошибок по темам</h4>
+      <div
+        class="crossbars-analysis__bar-item"
+        v-for="(topic, index) in analytics"
+        :key="index"
+      >
+        <p class="bar-item__title">
+          {{ topic.indexTopic + 1 }}.
+          {{ questionsData[topic.indexTopic].name }}:
+          {{ topic.correctCounter }}/{{ topic.questionsCounter }}
+        </p>
+        <div
+          class="bar-item__progress"
+          :style="`--width-bar: ${topic.rate}%`"
+        ></div>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
-import axios from "axios";
 import { mapGetters } from "vuex";
+import questionsData from "../assets/questionsData.json";
 export default {
   name: "Profile",
-  async created() {
+  data() {
+    return {
+      questionsData,
+      saveResultActive: false,
+    };
+  },
+  mounted() {
     if (localStorage.getItem("token") === null) {
       this.$router.push("/login");
-    } else {
-      await axios
-        .get("user", {
-          headers: {
-            authorization: localStorage.getItem("token"),
-          },
-        })
-        .then((response) => {
-          this.$store.dispatch("user", response.data);
-        });
     }
   },
   computed: {
-    ...mapGetters(["user"]),
+    ...mapGetters(["user", "analytics"]),
   },
   methods: {
     watchResult(userResult) {
       localStorage.setItem("result", JSON.stringify(userResult));
       this.$router.push("/result");
+    },
+    deleteResult(index) {
+      this.$store.commit("deleteUserResult", index);
+      this.saveResultActive = true;
+    },
+    async savingChanges() {
+      this.$store.commit("savingChanges");
     },
   },
 };
@@ -82,7 +109,7 @@ export default {
 }
 
 .inform__image {
-  width: 20%;
+  width: 250px;
   margin-bottom: 1rem;
 }
 
@@ -103,6 +130,10 @@ img {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+.stats__title {
+  margin: 20px;
 }
 
 .user-stats {
@@ -157,14 +188,49 @@ p {
   margin: 10px;
 }
 
-.watch-result-button span {
+.delete-result-button {
+  display: inline-block;
+  border-radius: 10px;
+  background-color: rgb(189, 68, 74);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.save-result-button {
+  display: inline-block;
+  border-radius: 10px;
+  background-color: rgb(117, 36, 215);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  padding: 10px;
+  width: 120px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.save-result-button:hover {
+  background-color: rgb(78, 24, 146);
+}
+.watch-result-button span,
+.delete-result-button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-.watch-result-button span:after {
+.watch-result-button span:after,
+.delete-result-button span:after {
   content: "\00bb";
   position: absolute;
   opacity: 0;
@@ -173,11 +239,13 @@ p {
   transition: 0.5s;
 }
 
-.watch-result-button:hover span {
+.watch-result-button:hover span,
+.delete-result-button:hover span {
   padding-right: 25px;
 }
 
-.watch-result-button:hover span:after {
+.watch-result-button:hover span:after,
+.delete-result-button:hover span:after {
   opacity: 1;
   right: 0;
 }
@@ -195,7 +263,7 @@ p {
     padding: 20px;
     flex-direction: column;
   }
-  
+
   p {
     margin-bottom: 10px;
   }
@@ -203,5 +271,33 @@ p {
   .result__counter {
     flex-direction: column;
   }
+}
+
+.crossbars-analysis {
+  max-width: 800px;
+  display: block;
+  margin: auto;
+}
+
+.crossbars-analysis__title {
+  text-align: center;
+  margin: 20px;
+}
+
+.crossbars-analysis__bar-item {
+  margin-bottom: 30px;
+}
+
+.bar-item__progress {
+  height: 10px;
+  background: silver;
+}
+
+.bar-item__progress::before {
+  content: "";
+  display: block;
+  width: var(--width-bar);
+  height: 100%;
+  background: rgb(0, 60, 150);
 }
 </style>
