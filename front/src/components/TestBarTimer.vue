@@ -75,6 +75,17 @@ export default {
       return `${minutes}:${seconds}`;
     },
 
+    formattedPassed() {
+      const minutes = Math.floor(this.timePassed / 60);
+      let seconds = this.timePassed % 60;
+
+      if (seconds < 10) {
+        seconds = `0${seconds}`;
+      }
+
+      return `${minutes}:${seconds}`;
+    },
+
     timeLeft() {
       return TIME_LIMIT - this.timePassed;
     },
@@ -110,7 +121,7 @@ export default {
   },
 
   beforeUnmount() {
-    localStorage.setItem("timeLeft", this.formattedTimeLeft);
+    localStorage.setItem("timeLeft", this.formattedPassed);
   },
 
   methods: {
