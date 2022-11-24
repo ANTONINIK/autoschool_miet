@@ -6,6 +6,7 @@ import Register from "../components/Register.vue";
 import Profile from "../components/Profile.vue";
 import Result from "../components/Result.vue";
 import TestsByTopic from "../components/TestsByTopic.vue";
+import The404 from "../components/The404.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
@@ -47,6 +48,11 @@ const routes = [
   {
     path: "/testsbytopic",
     component: TestsByTopic,
+  },
+
+  {
+    path: "/The404",
+    component: The404,
   },
 ];
 

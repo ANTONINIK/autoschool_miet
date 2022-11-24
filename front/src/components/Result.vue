@@ -100,7 +100,7 @@ export default {
       showUserAnswer: new Array(3),
     };
   },
-  async mounted() {
+  mounted() {
     document.title = "Результаты";
     const result = JSON.parse(localStorage.getItem("result"));
     if (result) {
@@ -113,7 +113,7 @@ export default {
       result.token = localStorage.getItem("token");
       this.showUserAnswer.fill(false);
       if (localStorage.getItem("timeLeft")) {
-        await axios.post("addResult", {
+        axios.post("addResult", {
           result: result,
         });
       }
@@ -158,7 +158,7 @@ export default {
 
 @media only screen and (max-width: 1050px) {
   .content__list {
-  max-width: 100%;
+    max-width: 100%;
   }
 }
 
