@@ -78,7 +78,10 @@ export default {
     if (localStorage.getItem("token") === null) {
       this.$router.push("/login");
     } else {
-      this.$store.dispatch("fetchUser", localStorage.getItem("token"));
+      this.$store.dispatch("fetchUser", localStorage.getItem("token")).catch((error) => {
+          console.log(error);
+          this.$router.push("/The404");
+        });
     }
   },
   computed: {
@@ -93,8 +96,9 @@ export default {
       this.$store.commit("deleteUserResult", index);
       this.saveResultActive = true;
     },
-    async savingChanges() {
+    savingChanges() {
       this.$store.commit("savingChanges");
+      this.saveResultActive = false;
     },
   },
 };

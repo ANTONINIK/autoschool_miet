@@ -2,7 +2,7 @@
   <header class="header">
     <nav
       class="navig"
-      :class="{ showContentFalse: !showContent, active: isActive }"
+      :class="{ active: isActive }"
     >
       <ul class="menu mb-0" :class="{ active: isActive }">
         <li
@@ -78,14 +78,8 @@ export default {
   data() {
     return {
       isActive: false,
-      showContent: false,
       isSelected: new Array(7).fill(false),
     };
-  },
-  created() {
-    setTimeout(() => {
-      this.showContent = true;
-    }, "400");
   },
   methods: {
     logout() {
@@ -230,10 +224,6 @@ export default {
   visibility: visible !important;
 }
 
-/* .showContentFalse {
-  transform: translateX(-94%);
-} */
-
 @media (hover) {
   .menu .menu-item:hover {
     border-color: #fff;
@@ -248,7 +238,7 @@ export default {
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    background-color: rgba(51, 113, 212, .95);
+    background-color: rgba(51, 113, 212, 0.95);
     top: 100%;
     width: 100%;
     color: black;

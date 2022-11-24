@@ -44,8 +44,8 @@ export default {
     }
   },
   methods: {
-    async handleSubmit() {
-      await axios
+    handleSubmit() {
+      axios
         .post("login", {
           email: this.email,
           password: this.password,

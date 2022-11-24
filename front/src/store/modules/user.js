@@ -1,16 +1,24 @@
 import axios from "axios";
 export default {
   actions: {
-    async fetchUser(ctx, token) {
-      await axios
-        .get("user", {
-          headers: {
-            authorization: token,
-          },
-        })
-        .then((response) => {
-          ctx.commit("updateUser", response.data);
-        })
+    fetchUser(ctx, token) {
+      return new Promise((resolve, reject) => {
+        axios
+          .get("user", {
+            headers: {
+              authorization: token,
+            },
+          })
+          .then((response) => {
+            if (response.status === 200)
+              ctx.commit("updateUser", response.data);
+            else localStorage.removeItem("token");
+            resolve(response);
+          })
+          .catch((error) => {
+            reject(error);
+          });
+      });
     },
   },
   mutations: {
