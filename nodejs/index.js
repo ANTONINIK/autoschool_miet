@@ -4,14 +4,16 @@ const cors = require("cors");
 const model = require("./model");
 const bodyParser = require("body-parser");
 const PORT = 4000;
+//const IP = "192.168.1.238"; //for mobile test
+const IP = "localhost";  //default
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(PORT, IP, () => {
+  console.log(`Server is running on port ${PORT} and ip ${IP}`);
 });
 
 app.post("/register", (request, response) => {
