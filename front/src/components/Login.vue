@@ -63,6 +63,10 @@ export default {
               confirmButtonColor: "#7524D7",
             });
           }
+        })
+        .catch((error) => {
+          console.log(error);
+          this.$router.push("/error");
         });
     },
     clickRegister() {

@@ -23,7 +23,7 @@
           class="menu-item"
           :class="{ menu_item_active: isSelected[2] }"
           @click="selectMenu('/login')"
-          v-if="!user"
+          v-show="!user"
         >
           <a class="menu-link">Войти</a>
         </li>
@@ -31,7 +31,7 @@
           class="menu-item"
           :class="{ menu_item_active: isSelected[3] }"
           @click="selectMenu('/register')"
-          v-if="!user"
+          v-show="!user"
         >
           <a class="menu-link">Регистрация</a>
         </li>
@@ -53,11 +53,11 @@
           class="menu-item"
           :class="{ menu_item_active: isSelected[6] }"
           @click="selectMenu('/profile')"
-          v-if="user"
+          v-show="user"
         >
           <a class="menu-link">Профиль</a>
         </li>
-        <li class="menu-item" @click="logout" v-if="user">
+        <li class="menu-item" @click="logout" v-show="user">
           <a class="menu-link">Выйти</a>
         </li>
       </ul>
