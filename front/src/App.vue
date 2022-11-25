@@ -5,14 +5,14 @@
       <router-view />
       <the-footer></the-footer>
     </div>
-    <the-404 v-else></the-404>
+    <error v-else></error>
   </div>
 </template>
 
 <script>
 import TheNavBar from "./components/TheNavBar.vue";
 import TheFooter from "./components/TheFooter.vue";
-import The404 from "./components/The404.vue";
+import Error from "./components/Error.vue";
 export default {
   name: "App",
   data() {
@@ -20,7 +20,7 @@ export default {
       serverConnected: true,
     };
   },
-  components: { TheNavBar, TheFooter, The404 },
+  components: { TheNavBar, TheFooter, Error },
   mounted() {
     if (localStorage.getItem("token") !== null) {
       this.$store

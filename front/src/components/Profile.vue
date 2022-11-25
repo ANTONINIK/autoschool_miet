@@ -80,7 +80,7 @@ export default {
     } else {
       this.$store.dispatch("fetchUser", localStorage.getItem("token")).catch((error) => {
           console.log(error);
-          this.$router.push("/The404");
+          this.$router.push("/error");
         });
     }
   },
